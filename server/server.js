@@ -39,10 +39,10 @@ let events =
     id: 1,
     name: 'Top Tracks',
     category: 'Music',
-    description: "-ify uses Spotify's API's to access your Top Tracks.",
-    featuredImage: 'https://cdn.pixabay.com/photo/2017/01/09/20/11/music-1967480_1280.png',
+    description: "-ify uses Spotify's APIs to access your Top Tracks.",
+    featuredImage: 'https://placekitten.com/500/500',
     images: [
-      'https://cdn.pixabay.com/photo/2017/01/09/20/11/music-1967480_1280.png',
+      'https://placekitten.com/500/500',
     ],
     // location: '1234 Fancy Ave',
     // date: '12-25-2019',
@@ -52,10 +52,10 @@ let events =
     id: 2,
     name: 'Top Artists',
     category: 'Music',
-    description: "-ify uses Spotify's API's to access your Top Artists.",
-    featuredImage: 'https://cdn.pixabay.com/photo/2017/01/09/20/11/music-1967480_1280.png',
+    description: "-ify uses Spotify's APIs to access your Top Artists.",
+    featuredImage: 'https://placekitten.com/500/500',
     images: [
-      'https://cdn.pixabay.com/photo/2017/01/09/20/11/music-1967480_1280.png'
+      'https://placekitten.com/500/500'
     ],
     // location: '1234 Dog Alley',
     // date: '11-21-2019',
@@ -65,10 +65,10 @@ let events =
     id: 3,
     name: 'Recently Played Tracks',
     category: 'Music',
-    description: "-ify uses Spotify's API's to access your Recently Played Tracks.",
-    featuredImage: 'https://cdn.pixabay.com/photo/2017/01/09/20/11/music-1967480_1280.png',
+    description: "-ify uses Spotify's APIs to access your Recently Played Tracks.",
+    featuredImage: 'https://placekitten.com/500/500',
     images: [
-      'https://cdn.pixabay.com/photo/2017/01/09/20/11/music-1967480_1280.png'
+      'https://placekitten.com/500/500'
     ],
     // location: '1234 Dog Alley',
     // date: '11-21-2019',
@@ -78,10 +78,10 @@ let events =
     id: 4,
     name: 'Music Suggestions',
     category: 'Music',
-    description: "-ify uses Spotify's API's to generate Music Suggestions.",
-    featuredImage: 'https://cdn.pixabay.com/photo/2017/01/09/20/11/music-1967480_1280.png',
+    description: "-ify uses Spotify's APIs to generate Music Suggestions.",
+    featuredImage: 'https://placekitten.com/500/500',
     images: [
-      'https://cdn.pixabay.com/photo/2017/01/09/20/11/music-1967480_1280.png'
+      'https://placekitten.com/500/500'
     ],
     // location: '1234 Dog Alley',
     // date: '11-21-2019',

@@ -18,7 +18,7 @@ export default {
 </script>
 <style lang="scss" scoped>
   .card {
-    background-image: url('https://cdn.pixabay.com/photo/2017/01/09/20/11/music-1967480_1280.png');
+    background-image: url('https://placekitten.com/500/500');
     height: 200px;
     background-position: center;
     background-size: cover;
