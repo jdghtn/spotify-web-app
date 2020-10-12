@@ -76,7 +76,7 @@ let events =
   },
   {
     id: 4,
-    name: 'Music Suggestions',
+    name: 'Recommendations',
     category: 'Music',
     description: "-ify uses Spotify's APIs to generate Music Suggestions.",
     featuredImage: 'https://placekitten.com/500/500',
@@ -96,9 +96,9 @@ app.get('/events', /*checkJwt,*/ (req, res) => {
 });
 
 // For this app, we only want to protect the route that returns the details of an event
-app.get('/events/:id', /*checkJwt,*/(req, res) => {
-  // const id = Number(req.params.id);
-  // const event = events.find(event => event.id === id);
+app.get('/events/:id', checkJwt, (req, res) => {
+  const id = Number(req.params.id);
+  const event = events.find(event => event.id === id);
   res.send(event);
 });
 

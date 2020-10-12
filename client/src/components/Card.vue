@@ -4,7 +4,7 @@
       <div class="card-content">
         <h2 class="is-size-4 has-text-weight-bold">{{ event.name }}</h2>
         <!-- <small class="event-date">{{ event.date }}</small> -->
-        <span>{{ event.feature }}</span>
+        <!-- <span>{{ event.feature }}</span> -->
       </div>
     </div>
   </div>
@@ -45,13 +45,13 @@ export default {
       margin-top: 10px;
     }
   }
-  .event-date {
-    background-color: #151515;
-    color: #FFF;
-    font-size: .75em;
-    padding: 2px 10px;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
+  // .event-date {
+  //   background-color: #151515;
+  //   color: #FFF;
+  //   font-size: .75em;
+  //   padding: 2px 10px;
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  // }
 </style>
