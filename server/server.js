@@ -16,7 +16,6 @@ const authConfig = {
   audience: "https://spotify-web-api.com"
 };
 
-// NEW
 // Create middleware to validate the JWT using express-jwt
 const checkJwt = jwt({
   // Provide a signing key based on the key identifier in the header and the signing keys provided by your Auth0 JWKS endpoint.

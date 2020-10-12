@@ -33,16 +33,16 @@ import Service from '@/services/Service.js';
 export default {
   name: 'Single',
   data() {
-    // NEW - initialize the event object
+    // Initialize the event object
     return {
       event: {}
     }
   },
   created() {
-    this.getEventData(); // NEW - call getEventData() when the instance is created
+    // Call getEventData() when the instance is created
+    this.getEventData();
   },
-  // UPDATED - Get the access token from the auth wrapper and pass it
-  // to EventService
+  // Get the access token from the auth wrapper and pass it to Service
   methods: {
     async getEventData() {
       // Get the access token from the auth wrapper

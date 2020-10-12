@@ -14,7 +14,7 @@
 </template>
 <script>
 import Card from "@/components/Card";
-import Service from '@/services/Service.js'; // NEW
+import Service from '@/services/Service.js';
 export default {
   name: "List",
   components: {
@@ -27,12 +27,12 @@ export default {
     };
   },
   created() {
-    this.getEventsData(); // NEW - call getEventData() when the instance is created
+    // Call getEventData() when the instance is created
+    this.getEventsData();
   },
-  // NEW
   methods: {
     async getEventsData() {
-      // NEW - Use the eventService to call the getEvents() method
+      // Use the eventService to call the getEvents() method
       Service.getEvents()
       .then(
         (events => {
