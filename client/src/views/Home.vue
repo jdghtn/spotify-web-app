@@ -45,13 +45,13 @@ export default {
     height: 400px;
   }
   .hero-body .title {
-    // color: black;
+    // color: black; ???
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
     padding: 40px 0 20px 0;
     font-size: 60px;
   }
   .subtitle {
-    // color: black;
+    // color: black; ???
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
     font-size: 30px;
   }
