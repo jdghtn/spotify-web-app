@@ -9,6 +9,8 @@
     </div>
   </div>
 </template>
+
+<!-- Displays feature cards on the home page -->
 <script>
 export default {
   props: [
@@ -16,6 +18,7 @@ export default {
   ]
 }
 </script>
+
 <style lang="scss" scoped>
   .card {
     background-image: url('https://placekitten.com/500/500');

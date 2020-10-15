@@ -86,7 +86,7 @@ let events =
     // date: '11-21-2019',
     // time: '12:00'
   }
-];
+]
 
 app.get('/events', /*checkJwt,*/ (req, res) => {
     // const id = Number(req.params.id);

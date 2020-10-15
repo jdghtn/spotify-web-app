@@ -12,6 +12,9 @@
     </div>
   </div>
 </template>
+
+<!-- Displays feature cards on the home page -->
+<!-- Card redirection pages-->
 <script>
 import Card from "@/components/Card";
 import Service from '@/services/Service.js';
@@ -28,11 +31,11 @@ export default {
   },
   created() {
     // Call getEventData() when the instance is created
-    this.getEventsData();
+    this.getEventData();
   },
   methods: {
-    async getEventsData() {
-      // Use the eventService to call the getEvents() method
+    async getEventData() {
+      // Use the Service to call the getEvents() method
       Service.getEvents()
       .then(
         (events => {
@@ -43,6 +46,7 @@ export default {
   }
 };
 </script>
+
 <style lang="scss" scoped>
   .events {
     margin-top: 100px;

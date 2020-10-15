@@ -6,7 +6,6 @@
         <h1 class="title">
           -ify
         </h1>
-
         <h2 class="subtitle">
           Your Top Tracks, Top Artists, and much more at your fingertips.
         </h2>
@@ -20,6 +19,7 @@
   <List />
 </div>
 </template>
+
 <script>
 import List from '../components/List';
 export default {
@@ -35,6 +35,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
   .hero {
     text-align: center;

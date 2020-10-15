@@ -1,7 +1,7 @@
 <template>
 <nav class="navbar container" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="/">
+    <a class="navbar-item">  <!-- href="/"> -->
       <strong class="is-size-4">-ify</strong>
     </a>
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -31,6 +31,8 @@
   </div>
 </nav>
 </template>
+
+<!-- Logs the user in and out -->
 <script>
 export default {
   name: 'Nav',
@@ -48,6 +50,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss" scoped>
   nav {
     margin-top: 25px;

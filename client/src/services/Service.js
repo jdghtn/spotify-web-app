@@ -12,5 +12,17 @@ export default {
       }
     });
     return res.data;
-  }
+  },
+  // async getTopTracks() {
+  //
+  // },
+  // async getTopArtists() {
+  //
+  // },
+  // async getRecentlyPlayed() {
+  //
+  // },
+  // async getRecommendations() {
+  //
+  // }
 }

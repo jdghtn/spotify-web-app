@@ -1,3 +1,5 @@
+<!-- List features -->
+
 <template>
   <div class="event-single">
     <section class="hero is-primary">

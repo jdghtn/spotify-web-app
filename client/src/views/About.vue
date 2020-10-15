@@ -10,7 +10,7 @@
     <div class="description-container">
       <p class="description is-size-4">
           Hello! My name is Joel and I'm a fourth-year computer science student at Acadia University.
-          For my Capstone project, I created a web-based application for Spotify that will show you your Top Tracks, Top Artists, Recently Played Songs, (and will recommend new music?)
+          For my Capstone project, I created a web-based application for Spotify that will show you your Top Tracks, Top Artists, Recently Played Songs, (and will recommend new music? use your favourite artists to create a playlist?)
       </p>
       <!-- <p class="org-description is-size-4">...</p> -->
     </div>
