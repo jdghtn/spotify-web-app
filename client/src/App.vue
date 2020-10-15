@@ -4,6 +4,7 @@
     <router-view/>
   </div>
 </template>
+
 <script>
 import Nav from './components/partials/Nav.vue';
 export default {
@@ -13,6 +14,7 @@ export default {
   }
 }
 </script>
+
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

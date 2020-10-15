@@ -1,5 +1,4 @@
 <!-- List features -->
-
 <template>
   <div class="event-single">
     <section class="hero is-primary">
@@ -30,6 +29,7 @@
     </section>
   </div>
 </template>
+
 <script>
 import Service from '@/services/Service.js';
 export default {

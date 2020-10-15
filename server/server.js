@@ -101,9 +101,22 @@ app.get('/events/:id', checkJwt, (req, res) => {
   res.send(event);
 });
 
-app.get('/', (req, res) => {
-  res.send(`Hi! Server is listening on port ${port}`)
-});
+app.get('/top-tracks', (req, res) => {
+    var settings = {
+      "url": "curl -X \"GET\" \"https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=10&offset=5\" -H \"Accept: application/json\" -H \"Content-Type: application/json\" -H \"Authorization: Bearer BQA1kXf0EI1Z7L8JsFhVm3JlCvqEV9J6uJeCIa-Ls6bO-et8L31ALAD7RXd0PxyluykjxzfsLrWAz2KRfN6hqxWKyZZ_PB0Q2-JGn3cDnbgQwrD6oXLXpIusPsbyCXR5d4o4usSd9ivyYlIZVHJ-CTpz2VSD-qgLbGfRzaSly-ZXnYc\"",
+      "method": "GET",
+      "timeout": 0,
+    };
+
+    $.ajax(settings).done(function (response) {
+      console.log(response);
+    });
+ });
+
+// app.get('/top-artists', (req, res) => {
+//
+//   res.send(...);
+// });
 
 // listen on the port
 app.listen(port);

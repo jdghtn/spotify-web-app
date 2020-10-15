@@ -13,9 +13,14 @@ export default {
     });
     return res.data;
   },
-  // async getTopTracks() {
-  //
-  // },
+  async getTopTracks(accessToken) {
+    let res = await axios.get("http://localhost:8000/top-tracks/", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    });
+    return res.data;
+  },
   // async getTopArtists() {
   //
   // },
