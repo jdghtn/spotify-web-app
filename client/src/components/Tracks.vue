@@ -31,7 +31,7 @@ export default {
     }
   },
   methods: {
-    getTopTracks () {
+    getTopTracks() {
       getTopTracks().then((songs) => {
         this.topTracks = songs
       })

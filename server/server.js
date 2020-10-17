@@ -54,7 +54,7 @@ console.log(authorizeURL);
 // You can generate one by going to https://developer.spotify.com/console/get-current-user-top-artists-and-tracks/?type=artists
 spotifyApi.setAccessToken('BQBp6JMO-IZ1OIZyBjESAW8DZb8jwmd7V-6Xnt-Ophmc7bKjWsiRBFpEc2BMkCw5k4nZ8dLWvJXuLkeb80LaCC6sLRnjLPotp3LyWqSrzzWMXOK38dCthj16TV5XrZHFmmi6p7ucTNPLCPZIzWDeEgZaEshZJ8hJgKNQZgK1H1xsYS0');
 
-app.get('/api/songs/tracks', (req, res) => {
+app.get('/tracks', (req, res) => {
 
   spotifyApi.getMyTopTracks()
   .then(function(data) {
@@ -66,7 +66,7 @@ app.get('/api/songs/tracks', (req, res) => {
 
 })
 
-app.get('/api/songs/artists', (req, res) => {
+app.get('/artists', (req, res) => {
 
   spotifyApi.getMyTopArtists()
   .then(function(data) {
@@ -78,7 +78,7 @@ app.get('/api/songs/artists', (req, res) => {
 
 })
 
-app.get('/api/songs/recently-played', (req, res) => {
+app.get('/recently-played', (req, res) => {
 
   spotifyApi.getMyRecentlyPlayedTracks({
     limit : 20

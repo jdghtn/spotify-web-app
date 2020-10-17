@@ -31,7 +31,7 @@ export default {
     }
   },
   methods: {
-    getTopArtists () {
+    getTopArtists() {
       getTopArtists().then((artists) => {
         this.topArtists = artists
       })

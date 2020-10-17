@@ -31,7 +31,7 @@ export default {
     }
   },
   methods: {
-    getRecentlyPlayed () {
+    getRecentlyPlayed() {
       getRecentlyPlayed().then((plays) => {
         this.recentlyPlayed = plays
       })
