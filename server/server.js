@@ -1,43 +1,44 @@
+'use strict';
+
 const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
 const app = express();
-const port = 8000;
-// const jwt = require("express-jwt");
-// const jwksRsa = require("jwks-rsa");
+const cors = require('cors');
+const jwt = require("express-jwt");
+const jwksRsa = require("jwks-rsa");
+const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
-app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
-// // Set up Auth0 configuration
-// const authConfig = {
-//   domain: "dev-7xyy3hfo.us.auth0.com",
-//   audience: "https://spotify-web-api.com"
-// };
-//
-// // Create middleware to validate the JWT using express-jwt
-// const checkJwt = jwt({
-//   // Provide a signing key based on the key identifier in the header and the signing keys provided by your Auth0 JWKS endpoint.
-//   secret: jwksRsa.expressJwtSecret({
-//     cache: true,
-//     rateLimit: true,
-//     jwksRequestsPerMinute: 5,
-//     jwksUri: `https://${authConfig.domain}/.well-known/jwks.json`
-//   }),
-//
-//   // Validate the audience (Identifier) and the issuer (Domain).
-//   audience: authConfig.audience,
-//   issuer: `https://${authConfig.domain}/`,
-//   algorithms: ["RS256"]
-// });
+// Set up Auth0 configuration
+const authConfig = {
+  domain: "dev-7xyy3hfo.us.auth0.com",
+  audience: "https://spotify-web-api.com"
+};
+
+// Create middleware to validate the JWT using express-jwt
+const checkJwt = jwt({
+  // Provide a signing key based on the key identifier in the header and the signing keys provided by your Auth0 JWKS endpoint.
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://${authConfig.domain}/.well-known/jwks.json`
+  }),
+
+  // Validate the audience (Identifier) and the issuer (Domain).
+  audience: authConfig.audience,
+  issuer: `https://${authConfig.domain}/`,
+  algorithms: ["RS256"]
+});
 
 var SpotifyWebApi = require('spotify-web-api-node');
 
 var scopes = ['user-top-read', 'user-read-recently-played'],
   redirectUri = 'http://localhost:8888/callback',
   clientId = 'af4f4a03083c41f0a25aa2c233fb1e42';
-  state = 'some-state-of-my-choice'; // I have no idea what this is.
+  // state = 'some-state-of-my-choice'; // I have no idea what this is.
 
 // Setting credentials can be done in the wrapper's constructor, or using the API object's setters.
 var spotifyApi = new SpotifyWebApi({
@@ -46,25 +47,50 @@ var spotifyApi = new SpotifyWebApi({
 });
 
 // Create the authorization URL
-var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
+var authorizeURL = spotifyApi.createAuthorizeURL(scopes); // state
 
 console.log(authorizeURL);
 
 // You can generate one by going to https://developer.spotify.com/console/get-current-user-top-artists-and-tracks/?type=artists
-spotifyApi.setAccessToken('');
+spotifyApi.setAccessToken('BQBp6JMO-IZ1OIZyBjESAW8DZb8jwmd7V-6Xnt-Ophmc7bKjWsiRBFpEc2BMkCw5k4nZ8dLWvJXuLkeb80LaCC6sLRnjLPotp3LyWqSrzzWMXOK38dCthj16TV5XrZHFmmi6p7ucTNPLCPZIzWDeEgZaEshZJ8hJgKNQZgK1H1xsYS0');
 
-/* Get a User’s Top Tracks*/
-spotifyApi.getMyTopTracks()
+app.get('/api/songs/tracks', (req, res) => {
+
+  spotifyApi.getMyTopTracks()
   .then(function(data) {
-    let topTracks = data.body.items;
-    console.log(topTracks);
+    let tracks = data.body.items;
+    res.json(tracks);
   }, function(err) {
-    console.log('Something went wrong!', err);
-});
+    res.json('Something went wrong!', err);
+  });
 
-app.get('/top-tracks', (req, res) => {
-    res.send();
- });
+})
+
+app.get('/api/songs/artists', (req, res) => {
+
+  spotifyApi.getMyTopArtists()
+  .then(function(data) {
+    let artists = data.body.items;
+    res.json(artists);
+  }, function(err) {
+    res.json('Something went wrong!', err);
+  });
+
+})
+
+app.get('/api/songs/recently-played', (req, res) => {
+
+  spotifyApi.getMyRecentlyPlayedTracks({
+    limit : 20
+  }).then(function(data) {
+    let played = data.body.items;
+      played.forEach(item => res.json(item.track));
+    }, function(err) {
+      res.json('Something went wrong!', err);
+  });
+
+})
 
 // listen on the port
-app.listen(port);
+app.listen(3333);
+console.log('listening on localhost:3333');

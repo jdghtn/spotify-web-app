@@ -14,6 +14,9 @@
     <div class="navbar-start">
       <router-link to="/" class="navbar-item">Home</router-link>
       <router-link to="/about" class="navbar-item">About</router-link>
+      <router-link to="/tracks" class="navbar-item">Top Tracks</router-link>
+      <router-link to="/artists" class="navbar-item">Top Artists</router-link>
+      <router-link to="/recently-played" class="navbar-item">Recently Played</router-link>
     </div>
     <div class="navbar-end">
       <div class="navbar-item">
