@@ -8,16 +8,16 @@ export default {
     };
   },
   created() {
-    // Call getTopTracks() when the instance is created
-    this.getTopTracks();
+    // Call getMyTopTracks() when the instance is created
+    this.getMyTopTracks();
   },
   methods: {
-    async getTopTracks() {
-      // Use the Service to call the getTopTracks() method
-      Service.getTopTracks()
+    async getMyTopTracks() {
+      // Use the Service to call the getMyTopTracks() method
+      Service.getTracks()
       .then(
         (events => {
-          this.$set(this, "tracks", events);
+          this.$set(this, "tracks", tracks);
         }).bind(this)
       );
     }

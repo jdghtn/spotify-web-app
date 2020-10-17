@@ -27,9 +27,9 @@ export default new Router({
     },
     {
       path: '/top-tracks',
-      name: 'top-tracks',
+      name: 'tracks',
       component: () => import('../views/Tracks.vue'),
-      beforeEnter: authGuard
+      // beforeEnter: authGuard
     }
   ]
 })
