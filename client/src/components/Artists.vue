@@ -19,7 +19,7 @@
 
 <script>
 import Nav from './Nav'
-import { getTopArtists } from '../service/Service.js'
+import { getTopArtists } from '../services/Service.js'
 export default {
   name: 'topArtists',
   components: {

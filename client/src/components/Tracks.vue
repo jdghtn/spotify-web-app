@@ -19,7 +19,7 @@
 
 <script>
 import Nav from './Nav'
-import { getTopTracks } from '../service/Service.js'
+import { getTopTracks } from '../services/Service.js'
 export default {
   name: 'topTracks',
   components: {

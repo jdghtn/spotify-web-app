@@ -19,7 +19,7 @@
 
 <script>
 import Nav from './Nav'
-import { getRecentlyPlayed } from '../service/Service.js'
+import { getRecentlyPlayed } from '../services/Service.js'
 export default {
   name: 'recentlyPlayed',
   components: {
