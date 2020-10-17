@@ -52,7 +52,7 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes); // state
 console.log(authorizeURL);
 
 // You can generate one by going to https://developer.spotify.com/console/get-current-user-top-artists-and-tracks/?type=artists
-spotifyApi.setAccessToken('BQBp6JMO-IZ1OIZyBjESAW8DZb8jwmd7V-6Xnt-Ophmc7bKjWsiRBFpEc2BMkCw5k4nZ8dLWvJXuLkeb80LaCC6sLRnjLPotp3LyWqSrzzWMXOK38dCthj16TV5XrZHFmmi6p7ucTNPLCPZIzWDeEgZaEshZJ8hJgKNQZgK1H1xsYS0');
+spotifyApi.setAccessToken('BQBmXi14tPqNZNcjEGJaRaWJbC4zOKocJy1nWu3D2Nw2DtvacqFgwTuXp-bumkZKkT87pxZ7ritzuaHP8cmP3VurUFZ_TeSBDHxBDsgFSpUJIM3OA5yrDFEA51UGhCQzTT7xxBDsqvYsylfRykg5gqsIOF1htmVCOzBVxlWESIq1BGg');
 
 app.get('/tracks', (req, res) => {
 
