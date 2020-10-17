@@ -52,7 +52,7 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes); // (scopes, state)
 console.log(authorizeURL);
 
 // You can generate one by going to https://developer.spotify.com/console/get-current-user-top-artists-and-tracks/?type=artists
-spotifyApi.setAccessToken('BQBmXi14tPqNZNcjEGJaRaWJbC4zOKocJy1nWu3D2Nw2DtvacqFgwTuXp-bumkZKkT87pxZ7ritzuaHP8cmP3VurUFZ_TeSBDHxBDsgFSpUJIM3OA5yrDFEA51UGhCQzTT7xxBDsqvYsylfRykg5gqsIOF1htmVCOzBVxlWESIq1BGg');
+spotifyApi.setAccessToken('BQAGZBk3e6mBuwaP2AE2HIFJYuFyRzReiq9xuy5wuy-tU-WZ_CdLcMGcBFYj2_rwcNqjq00_O_wnsnR-8lE2AYaG_sKty9-odegB8ycd5QD1ZnzuGggjxK_EqQR2nl0XHnPg28BBZ1GUu4D5GL9K5LuqdW0wFgAw0aIx1ytiQvqfdhQ');
 
 app.get('/tracks', (req, res) => {
 
@@ -83,11 +83,10 @@ app.get('/recently-played', (req, res) => {
   spotifyApi.getMyRecentlyPlayedTracks({
     limit : 20
   }).then(function(data) {
-      let played = body.data.items;
-      for (var i = 0; i < played.length; i++)
-        played.forEach(item => res.json(item.track));
+    let played = data.body.items;
+      played.forEach(item => res.json(item.track));
     }, function(err) {
-      console.log('Something went wrong recently played!', err);
+      res.json('Something went wrong!', err);
   });
 
 })
