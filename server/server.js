@@ -50,6 +50,7 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 
 console.log(authorizeURL);
 
+// You can generate one by going to https://developer.spotify.com/console/get-current-user-top-artists-and-tracks/?type=artists
 spotifyApi.setAccessToken('');
 
 /* Get a User’s Top Tracks*/
