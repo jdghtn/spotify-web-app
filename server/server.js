@@ -47,7 +47,7 @@ var spotifyApi = new SpotifyWebApi({
 });
 
 // Create the authorization URL
-var authorizeURL = spotifyApi.createAuthorizeURL(scopes); // state
+var authorizeURL = spotifyApi.createAuthorizeURL(scopes); // (scopes, state)
 
 console.log(authorizeURL);
 
@@ -61,7 +61,7 @@ app.get('/tracks', (req, res) => {
     let tracks = data.body.items;
     res.json(tracks);
   }, function(err) {
-    res.json('Something went wrong!', err);
+    console.log('Something went wrong with tracks!', err);
   });
 
 })
@@ -73,7 +73,7 @@ app.get('/artists', (req, res) => {
     let artists = data.body.items;
     res.json(artists);
   }, function(err) {
-    res.json('Something went wrong!', err);
+    console.log('Something went wrong with artists!', err);
   });
 
 })
@@ -83,10 +83,11 @@ app.get('/recently-played', (req, res) => {
   spotifyApi.getMyRecentlyPlayedTracks({
     limit : 20
   }).then(function(data) {
-    let played = data.body.items;
-      played.forEach(item => res.json(item.track));
+      let played = body.data.items;
+      for (var i = 0; i < played.length; i++)
+        played.forEach(item => res.json(item.track));
     }, function(err) {
-      res.json('Something went wrong!', err);
+      console.log('Something went wrong recently played!', err);
   });
 
 })

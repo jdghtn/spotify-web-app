@@ -26,22 +26,22 @@ export default new Router({
       // beforeEnter: authGuard
     },
     {
-    path: '/tracks',
-    name: 'Tracks',
-    component: () => import('../services/Service.js'),
-    // beforeEnter: authGuard
+      path: '/tracks',
+      name: 'Tracks',
+      component: () => import('../services/Service.js'),
+      // beforeEnter: authGuard
     },
     {
-    path: '/artists',
-    name: 'Artists',
-    component: () => import('../services/Service.js'),
-    // beforeEnter: authGuard
+      path: '/artists',
+      name: 'Artists',
+      component: () => import('../services/Service.js'),
+      // beforeEnter: authGuard
     },
     {
-    path: '/recently-played',
-    name: 'RecentlyPlayed',
-    component: () => import('../services/Service.js'),
-    // beforeEnter: authGuard
+      path: '/recently-played',
+      name: 'RecentlyPlayed',
+      component: () => import('../services/Service.js'),
+      // beforeEnter: authGuard
     },
   ]
 })

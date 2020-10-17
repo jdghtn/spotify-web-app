@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="events container">
     <h2 class="subtitle is-3">
     Features:
@@ -11,11 +11,11 @@
       </div>
     </div>
   </div>
-</template>
+</template> -->
 
 <!-- Displays feature cards on the home page -->
 <!-- Card redirection pages-->
-<script>
+<!-- <script>
 import Card from "@/components/Card";
 import Service from '@/services/Service.js';
 export default {
@@ -45,11 +45,11 @@ export default {
     }
   }
 };
-</script>
+</script> -->
 
-<style lang="scss" scoped>
+<!-- <style lang="scss" scoped>
   .events {
     margin-top: 100px;
     text-align: center;
   }
-</style>
+</style> -->
