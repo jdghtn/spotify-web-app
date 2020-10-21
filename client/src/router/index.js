@@ -19,12 +19,12 @@ export default new Router({
       name: 'about',
       component: () => import('../views/About.vue')
     },
-    {
-      path: '/event/:id',
-      name: 'single',
-      component: () => import('../views/Single.vue'),
-      // beforeEnter: authGuard
-    },
+    // {
+    //   path: '/event/:id',
+    //   name: 'single',
+    //   component: () => import('../views/Single.vue'),
+    //   // beforeEnter: authGuard
+    // },
     {
       path: '/tracks',
       name: 'Tracks',

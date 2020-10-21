@@ -52,34 +52,29 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes); // (scopes, state)
 console.log(authorizeURL);
 
 // You can generate one by going to https://developer.spotify.com/console/get-current-user-top-artists-and-tracks/?type=artists
-spotifyApi.setAccessToken('');
+spotifyApi.setAccessToken('BQAqszloOywgtuYb3pEJPddU1cGuc39x1UZKb06r-auKyxDtBof3Q2omt4umOXBA6NG_jdvt3jgMTSB5lejcbohvmSDJOlRW1CyGtLm_RWZDKohezmJN4WfnxpxyD4aQi5N_ilAuS02-2DRHwR_Mf-opzJ_EOl30sqUaf5Dygwf00PYy8fs');
 
 app.get('/tracks', (req, res) => {
-
   spotifyApi.getMyTopTracks()
   .then(function(data) {
     let tracks = data.body.items;
     res.json(tracks);
   }, function(err) {
-    console.log('Something went wrong with tracks!', err);
+    res.json('Something went wrong with tracks!', err);
   });
-
 })
 
 app.get('/artists', (req, res) => {
-
   spotifyApi.getMyTopArtists()
   .then(function(data) {
     let artists = data.body.items;
     res.json(artists);
   }, function(err) {
-    console.log('Something went wrong with artists!', err);
+    res.json('Something went wrong with artists!', err);
   });
-
 })
 
 app.get('/recently-played', (req, res) => {
-
   spotifyApi.getMyRecentlyPlayedTracks({
     limit : 20
   }).then(function(data) {
@@ -88,11 +83,9 @@ app.get('/recently-played', (req, res) => {
     }, function(err) {
       res.json('Something went wrong!', err);
   });
-
 })
 
 app.get('/recommendations', (req, res) => {
-
   spotifyApi.getRecommendations({
     min_energy: 0.4,
     seed_artists: ['6fcTRFpz0yH79qSKfof7lp', '23fqKkggKUBHNkbKtXEls4'],
@@ -103,7 +96,6 @@ app.get('/recommendations', (req, res) => {
     }, function(err) {
       res.json("Something went wrong with recommendations!", err);
   });
-
 })
 
 // listen on the port

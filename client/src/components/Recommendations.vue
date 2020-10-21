@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import AppNav from './Nav'
+import Nav from './Nav'
 import { getRecommendations } from '../services/Service.js'
 export default {
   name: 'recommendations',

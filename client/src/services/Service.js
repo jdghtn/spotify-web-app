@@ -19,7 +19,7 @@ const BASE_URL = 'http://localhost:3333';
 export {getTopTracks};
 export {getTopArtists};
 export {getRecentlyPlayed};
-export {getRecommendations}
+export {getRecommendations};
 
 function getTopTracks() {
   const url = `${BASE_URL}/tracks`;
