@@ -1,12 +1,12 @@
 <template>
   <div>
     <nav></nav>
-    <h3 class="text-center">Recently Played</h3>
+    <h3 class="text-center">Top Artists</h3>
     <hr/>
-    <div class="col-sm-4" v-for="played in recentlyPlayed" v-bind:key="played">
+    <div class="col-sm-4" v-for="artist in topArtists" v-bind:key="artist">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title"> {{ played.name }} </h3>
+          <h3 class="panel-title"> {{ artist.name }} </h3>
         </div>
         <div class="panel-body">
         </div>
@@ -19,26 +19,26 @@
 
 <script>
 import Nav from './Nav'
-import { getRecentlyPlayed } from '../services/Service.js'
+import { getTopArtists } from '../services/Service.js'
 export default {
-  name: 'recentlyPlayed',
+  name: 'topArtists',
   components: {
-    Nav
+    AppNav
   },
   data () {
     return {
-      recentlyPlayed: ''
+      topArtists: ''
     }
   },
   methods: {
-    getRecentlyPlayed() {
-      getRecentlyPlayed().then((plays) => {
-        this.recentlyPlayed = plays
+    getTopArtists () {
+      getTopArtists().then((artists) => {
+        this.topArtists = artists
       })
     }
   },
   mounted () {
-    this.getRecentlyPlayed()
+    this.getTopArtists()
   }
 }
 </script>

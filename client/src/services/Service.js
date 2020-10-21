@@ -19,6 +19,7 @@ const BASE_URL = 'http://localhost:3333';
 export {getTopTracks};
 export {getTopArtists};
 export {getRecentlyPlayed};
+export {getRecommendations}
 
 function getTopTracks() {
   const url = `${BASE_URL}/tracks`;
@@ -32,6 +33,11 @@ function getTopArtists() {
 
 function getRecentlyPlayed() {
   const url = `${BASE_URL}/recently-played`;
+  return axios.get(url).then(response => response.data);
+}
+
+function getRecommendations() {
+  const url = `${BASE_URL}/recommendations`;
   return axios.get(url).then(response => response.data);
 }
 // }

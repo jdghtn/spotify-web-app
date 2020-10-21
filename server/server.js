@@ -52,7 +52,7 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes); // (scopes, state)
 console.log(authorizeURL);
 
 // You can generate one by going to https://developer.spotify.com/console/get-current-user-top-artists-and-tracks/?type=artists
-spotifyApi.setAccessToken('BQAGZBk3e6mBuwaP2AE2HIFJYuFyRzReiq9xuy5wuy-tU-WZ_CdLcMGcBFYj2_rwcNqjq00_O_wnsnR-8lE2AYaG_sKty9-odegB8ycd5QD1ZnzuGggjxK_EqQR2nl0XHnPg28BBZ1GUu4D5GL9K5LuqdW0wFgAw0aIx1ytiQvqfdhQ');
+spotifyApi.setAccessToken('');
 
 app.get('/tracks', (req, res) => {
 
@@ -87,6 +87,21 @@ app.get('/recently-played', (req, res) => {
       played.forEach(item => res.json(item.track));
     }, function(err) {
       res.json('Something went wrong!', err);
+  });
+
+})
+
+app.get('/recommendations', (req, res) => {
+
+  spotifyApi.getRecommendations({
+    min_energy: 0.4,
+    seed_artists: ['6fcTRFpz0yH79qSKfof7lp', '23fqKkggKUBHNkbKtXEls4'],
+    min_popularity: 20
+  }).then(function(data) {
+      let recommendations = data.body;
+      res.json(recommendations);
+    }, function(err) {
+      res.json("Something went wrong with recommendations!", err);
   });
 
 })

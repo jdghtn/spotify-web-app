@@ -43,5 +43,11 @@ export default new Router({
       component: () => import('../services/Service.js'),
       // beforeEnter: authGuard
     },
+    {
+      path: '/recommendations',
+      name: 'Recommendations',
+      component: () => import('../services/Service.js'),
+      // beforeEnter: authGuard
+    }
   ]
 })
