@@ -21,24 +21,24 @@
 import Nav from './Nav'
 import { getRecentlyPlayed } from '../services/Service.js'
 export default {
-  name: 'recommendations',
+  name: 'recentlyPlayed',
   components: {
     Nav
   },
   data () {
     return {
-      recommendations: ''
+      recentlyPlayed: ''
     }
   },
   methods: {
-    getRecommendations () {
-      getRecommendations().then((plays) => {
+    getRecentlyPlayed () {
+      getRecentlyPlayed().then((plays) => {
         this.recentlyPlayed = plays
       })
     }
   },
   mounted () {
-    this.getRecommendations()
+    this.getRecentlyPlayed()
   }
 }
 </script>

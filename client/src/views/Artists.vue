@@ -23,7 +23,7 @@ import { getTopArtists } from '../services/Service.js'
 export default {
   name: 'topArtists',
   components: {
-    AppNav
+    Nav
   },
   data () {
     return {

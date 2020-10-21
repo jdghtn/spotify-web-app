@@ -20,11 +20,11 @@
 
 <script>
 import AppNav from './Nav'
-import { getRecommendations } from '../../utils/api'
+import { getRecommendations } from '../services/Service.js'
 export default {
   name: 'recommendations',
   components: {
-    AppNav
+    Nav
   },
   data () {
     return {
