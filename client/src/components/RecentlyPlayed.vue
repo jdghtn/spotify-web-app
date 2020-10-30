@@ -1,6 +1,5 @@
 <template>
   <div>
-    <app-nav></app-nav>
     <hr/>
     <div class="container">
       <div class="row">
@@ -23,13 +22,9 @@
 </template>
 
 <script>
-import AppNav from './AppNav'
 import { getRecentlyPlayed } from '../../utils/api'
 export default {
   name: 'recentlyPlayed',
-  components: {
-    AppNav
-  },
   data () {
     return {
       recentlyPlayed: ''

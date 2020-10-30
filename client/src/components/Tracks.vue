@@ -1,6 +1,5 @@
 <template>
   <div>
-    <app-nav></app-nav>
     <hr/>
     <div class="container">
       <div class="row">
@@ -23,13 +22,9 @@
 </template>
 
 <script>
-import AppNav from './AppNav'
 import { getTopTracks } from '../../utils/api'
 export default {
   name: 'topTracks',
-  components: {
-    AppNav
-  },
   data () {
     return {
       topTracks: ''

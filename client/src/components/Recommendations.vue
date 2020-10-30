@@ -1,6 +1,5 @@
 <template>
   <div>
-    <app-nav></app-nav>
     <hr/>
     <div class="container">
       <div class="row">
@@ -23,13 +22,9 @@
 </template>
 
 <script>
-import AppNav from './AppNav'
 import { getRecommendations } from '../../utils/api'
 export default {
   name: 'recommendations',
-  components: {
-    AppNav
-  },
   data () {
     return {
       recommendations: ''

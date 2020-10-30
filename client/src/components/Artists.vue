@@ -1,6 +1,5 @@
 <template>
   <div>
-    <app-nav></app-nav>
     <hr/>
     <div class="container">
       <div class="row">
@@ -22,13 +21,9 @@
 </template>
 
 <script>
-import AppNav from './AppNav'
 import { getTopArtists } from '../../utils/api'
 export default {
   name: 'topArtists',
-  components: {
-    AppNav
-  },
   data () {
     return {
       topArtists: ''

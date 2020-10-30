@@ -55,12 +55,12 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 // https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
 console.log(authorizeURL);
 
-spotifyApi.setAccessToken('BQAke4V2HhWz2BdommiCM14ZOfzn7Gn3trr8JYxb3I_JsitrrXNFAVIfdxc61CQJQvAwb-IVxbquMkS_YzmEOEbL7UKB5_KNCkm1cjIe5oDzeXB2LqZ5RCBLADINVcs90wbmbze3zjI3F78Td59y3MzGPwgnmDzdQcD1rjpnAkK0ycO-H_I');
+spotifyApi.setAccessToken('BQAULMYy_dLswDAUHo-3uWCTTMRT8KLbHo7uFrx8UHlwpM1KnCu3s_RFUZhdlBmuz_uxQMh6K6sbSh0lgmrFrc8meY5Gl_s7AfF9gAaGAzPB0hv2fVOK0DBI4v8kX5rer0A1X6j1rxWocCO_FM9sikgx9hvmu2QziQIiOkI4UsNFfAuQHM4');
 /* End Spotify */
 
 // Gets the user's top tracks.
-app.get('/api/songs/tracks', (req, res) => {
-  console.log('The call to api/songs/tracks received.');
+app.get('/api/tracks', (req, res) => {
+  console.log('The call to api/tracks received.');
   spotifyApi.getMyTopTracks({
     limit: 21
   }).then(function(data) {
@@ -72,8 +72,8 @@ app.get('/api/songs/tracks', (req, res) => {
 })
 
 // Gets the user's top artists.
-app.get('/api/songs/artists', (req, res) => {
-  console.log('The call to api/songs/artists was received.');
+app.get('/api/artists', (req, res) => {
+  console.log('The call to api/artists was received.');
   spotifyApi.getMyTopArtists({
     limit: 21
   }).then(function(data) {
@@ -85,8 +85,8 @@ app.get('/api/songs/artists', (req, res) => {
 })
 
 // Gets the user's recently played tracks.
-app.get('/api/songs/recently-played', (req, res) => {
-  console.log('The call to api/songs/recently-played was received.');
+app.get('/api/recently-played', (req, res) => {
+  console.log('The call to api/recently-played was received.');
   spotifyApi.getMyRecentlyPlayedTracks({
     limit : 21
   }).then(function(data) {
@@ -99,8 +99,8 @@ app.get('/api/songs/recently-played', (req, res) => {
 })
 
 // Get Recommendations Based on Seeds (based off of top 5 artists?)
-app.get('/api/songs/recommendations', (req, res) => {
-  console.log('The call to api/songs/recommendations was received.');
+app.get('/api/recommendations', (req, res) => {
+  console.log('The call to api/recommendations was received.');
   spotifyApi.getRecommendations({
     limit: 21,
     min_energy: 0.4,
