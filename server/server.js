@@ -2,9 +2,9 @@
 
 const express = require('express');
 const app = express();
-const cors = require('cors');
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
+const cors = require('cors');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
@@ -33,12 +33,15 @@ const checkJwt = jwt({
   algorithms: ["RS256"]
 });
 
+/* Start Spotify */
 var SpotifyWebApi = require('spotify-web-api-node');
+const { json } = require('body-parser');
+const { response } = require('express');
 
 var scopes = ['user-top-read', 'user-read-recently-played'],
   redirectUri = 'http://localhost:8888/callback',
-  clientId = 'af4f4a03083c41f0a25aa2c233fb1e42';
-  // state = 'some-state-of-my-choice'; // I have no idea what this is.
+  clientId = 'af4f4a03083c41f0a25aa2c233fb1e42',
+  state = 'some-state-of-my-choice'; // ???
 
 // Setting credentials can be done in the wrapper's constructor, or using the API object's setters.
 var spotifyApi = new SpotifyWebApi({
@@ -47,57 +50,69 @@ var spotifyApi = new SpotifyWebApi({
 });
 
 // Create the authorization URL
-var authorizeURL = spotifyApi.createAuthorizeURL(scopes); // (scopes, state)
+var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 
+// https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
 console.log(authorizeURL);
 
-// You can generate one by going to https://developer.spotify.com/console/get-current-user-top-artists-and-tracks/?type=artists
-spotifyApi.setAccessToken('BQAqszloOywgtuYb3pEJPddU1cGuc39x1UZKb06r-auKyxDtBof3Q2omt4umOXBA6NG_jdvt3jgMTSB5lejcbohvmSDJOlRW1CyGtLm_RWZDKohezmJN4WfnxpxyD4aQi5N_ilAuS02-2DRHwR_Mf-opzJ_EOl30sqUaf5Dygwf00PYy8fs');
+spotifyApi.setAccessToken('');
+/* End Spotify */
 
-app.get('/tracks', (req, res) => {
-  spotifyApi.getMyTopTracks()
-  .then(function(data) {
+// Gets the user's top tracks.
+app.get('/api/songs/tracks', (req, res) => {
+  console.log('The call to api/songs/tracks received.');
+  spotifyApi.getMyTopTracks({
+    limit: 21
+  }).then(function(data) {
     let tracks = data.body.items;
     res.json(tracks);
   }, function(err) {
-    res.json('Something went wrong with tracks!', err);
+    console.log('Something went wrong with tracks!', err);
   });
 })
 
-app.get('/artists', (req, res) => {
-  spotifyApi.getMyTopArtists()
-  .then(function(data) {
+// Gets the user's top artists.
+app.get('/api/songs/artists', (req, res) => {
+  console.log('The call to api/songs/artists was received.');
+  spotifyApi.getMyTopArtists({
+    limit: 21
+  }).then(function(data) {
     let artists = data.body.items;
     res.json(artists);
   }, function(err) {
-    res.json('Something went wrong with artists!', err);
+    console.log('Something went wrong with artists!', err);
   });
 })
 
-app.get('/recently-played', (req, res) => {
+// Gets the user's recently played tracks.
+app.get('/api/songs/recently-played', (req, res) => {
+  console.log('The call to api/songs/recently-played was received.');
   spotifyApi.getMyRecentlyPlayedTracks({
-    limit : 20
+    limit : 21
   }).then(function(data) {
-    let played = data.body.items;
-      played.forEach(item => res.json(item.track));
+      let played = data.body.items;
+      played.forEach(item => (item.track));
+      res.json(played);
     }, function(err) {
-      res.json('Something went wrong!', err);
-  });
+      console.log('Something went wrong with recently played!', err);
+    });
 })
 
-app.get('/recommendations', (req, res) => {
+// Get Recommendations Based on Seeds (based off of top 5 artists?)
+app.get('/api/songs/recommendations', (req, res) => {
+  console.log('The call to api/songs/recommendations was received.');
   spotifyApi.getRecommendations({
+    limit: 21,
     min_energy: 0.4,
-    seed_artists: ['6fcTRFpz0yH79qSKfof7lp', '23fqKkggKUBHNkbKtXEls4'],
-    min_popularity: 20
+    seed_artists: ['6fcTRFpz0yH79qSKfof7lp', '23fqKkggKUBHNkbKtXEls4', '6heMlLFM6RDDHRz99uKMqS', '60d24wfXkVzDSfLS6hyCjZ', '1l2ekx5skC4gJH8djERwh1'],
+    min_popularity: 10
   }).then(function(data) {
-      let recommendations = data.body;
-      res.json(recommendations);
-    }, function(err) {
-      res.json("Something went wrong with recommendations!", err);
+  let recommendations = data.body;
+  res.json(recommendations);
+  }, function(err) {
+  console.log("Something went wrong with recommendations!", err);
   });
 })
 
-// listen on the port
 app.listen(3333);
-console.log('listening on localhost:3333');
+console.log('Listening on localhost:3333');
