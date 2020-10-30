@@ -16,25 +16,28 @@ const BASE_URL = 'http://localhost:3333';
 //     return res.data;
 //   },
 
-export default {
-  async getTopTracks() {
-    const url = `${BASE_URL}/tracks`;
-    return axios.get(url).then(response => response.data);
-  },
+export {getTopTracks};
+export {getTopArtists};
+export {getRecentlyPlayed};
+export {getRecommendations};
 
-  async getTopArtists() {
-    const url = `${BASE_URL}/artists`;
-    return axios.get(url).then(response => response.data);
-  },
+function getTopTracks() {
+  const url = `${BASE_URL}/tracks`;
+  return axios.get(url).then(response => response.data);
+}
 
-  async getRecentlyPlayed() {
-    const url = `${BASE_URL}/recently-played`;
-    return axios.get(url).then(response => response.data);
-  },
+function getTopArtists() {
+  const url = `${BASE_URL}/artists`;
+  return axios.get(url).then(response => response.data);
+}
 
-  async getRecommendations() {
-    const url = `${BASE_URL}/recommendations`;
-    return axios.get(url).then(response => response.data);
-  },
-};
+function getRecentlyPlayed() {
+  const url = `${BASE_URL}/recently-played`;
+  return axios.get(url).then(response => response.data);
+}
+
+function getRecommendations() {
+  const url = `${BASE_URL}/recommendations`;
+  return axios.get(url).then(response => response.data);
+}
 // }
