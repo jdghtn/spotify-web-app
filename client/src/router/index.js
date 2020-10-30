@@ -2,17 +2,17 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
-import Tracks from '../services/Service.js'
-import Artists from '../services/Service.js'
-import RecentlyPlayed from '../services/Service.js'
-import Recommendations from '../services/Service.js'
+import Tracks from '../components/Tracks.vue'
+import Artists from '../components/Artists.vue'
+import RecentlyPlayed from '../components/RecentlyPlayed.vue'
+import Recommendations from '../components/Recommendations.vue'
 // import { authGuard } from "../auth/authGuard";
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  base: process.env.BASE_URL,
+  // base: process.env.BASE_URL,
   routes: [
     {
       path: '/',

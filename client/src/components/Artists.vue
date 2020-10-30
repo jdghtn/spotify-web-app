@@ -3,23 +3,28 @@
     <nav></nav>
     <h3 class="text-center">Top Artists</h3>
     <hr/>
-    <div class="col-sm-4" v-for="artist in topArtists" v-bind:key="artist">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title"> {{ artist.name }} </h3>
-        </div>
-        <div class="panel-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4" v-for="artist in topArtists" v-bind:key="artist.name">
+          <div class="panel panel-default">
+            <div class="panel-heaing">
+              <h3 class="panel-title">
+                <a v-bind:href="artist.external_urls.spotify" target="new"> {{ artist.name }} </a>
+              </h3>
+            </div>
+            <div>
+              <img class="img-responsive" v-bind:src="artist.images[0].url">
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-sm-12">
     </div>
   </div>
 </template>
 
 <script>
 import Nav from './Nav'
-import { getTopArtists } from '../services/Service.js'
+import { getTopArtists } from '../services/api'
 export default {
   name: 'topArtists',
   components: {
@@ -45,4 +50,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.img-responsive {
+    width:100%;
+    max-width:1000px;
+}
 </style>

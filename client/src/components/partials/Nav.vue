@@ -17,7 +17,7 @@
       <router-link to="/tracks" class="navbar-item">Top Tracks</router-link>
       <router-link to="/artists" class="navbar-item">Top Artists</router-link>
       <router-link to="/recently-played" class="navbar-item">Recently Played</router-link>
-      <router-link to="/recommendations" class="navbar-item">Recommendations</router-link> 
+      <router-link to="/recommendations" class="navbar-item">Recommendations</router-link>
     </div>
     <div class="navbar-end">
       <div class="navbar-item">
