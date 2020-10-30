@@ -1,7 +1,6 @@
 <template>
   <div>
     <app-nav></app-nav>
-    <h3 class="text-center">Top Artists</h3>
     <hr/>
     <div class="container">
       <div class="row">
