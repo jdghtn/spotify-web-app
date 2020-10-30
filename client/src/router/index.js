@@ -1,58 +1,46 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
-import Tracks from '../components/Tracks.vue'
-import Artists from '../components/Artists.vue'
-import RecentlyPlayed from '../components/RecentlyPlayed.vue'
-import Recommendations from '../components/Recommendations.vue'
-// import { authGuard } from "../auth/authGuard";
+import Home from '@/views/Home'
+import About from '@/views/About'
+import Tracks from '@/components/Tracks'
+import Artists from '@/components/Artists'
+import RecentlyPlayed from '@/components/RecentlyPlayed'
+import Recommendations from '@/components/Recommendations'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  // base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
-      name: 'home',
+      name: 'Home',
       component: Home
     },
     {
       path: '/about',
-      name: 'about',
+      name: 'About',
       component: About
     },
-    // {
-    //   path: '/event/:id',
-    //   name: 'single',
-    //   component: () => import('../views/Single.vue'),
-    //   // beforeEnter: authGuard
-    // },
     {
       path: '/tracks',
       name: 'Tracks',
       component: Tracks
-      // beforeEnter: authGuard
     },
     {
       path: '/artists',
       name: 'Artists',
       component: Artists
-      // beforeEnter: authGuard
     },
     {
       path: '/recently-played',
       name: 'RecentlyPlayed',
       component: RecentlyPlayed
-      // beforeEnter: authGuard
     },
     {
       path: '/recommendations',
       name: 'Recommendations',
       component: Recommendations
-      // beforeEnter: authGuard
     }
   ]
 })

@@ -39,7 +39,7 @@
 <!-- Logs the user in and out -->
 <script>
 export default {
-  name: 'Nav',
+  name: 'app-nav',
   methods: {
     // Log the user in
     login() {

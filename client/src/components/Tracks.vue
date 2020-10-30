@@ -1,7 +1,6 @@
 <template>
   <div>
-    <nav></nav>
-    <h3 class="text-center">Top Tracks</h3>
+    <app-nav></app-nav>
     <hr/>
     <div class="container">
       <div class="row">
@@ -24,12 +23,12 @@
 </template>
 
 <script>
-import Nav from './Nav'
-import { getTopTracks } from '../services/api'
+import AppNav from './AppNav'
+import { getTopTracks } from '../../utils/api'
 export default {
   name: 'topTracks',
   components: {
-    Nav
+    AppNav
   },
   data () {
     return {
@@ -47,12 +46,12 @@ export default {
     this.getTopTracks()
   }
 }
-</script>
+</script> -->
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.img-responsive {
+  .img-responsive {
     width:100%;
     max-width:1000px;
-}
+  }
 </style>

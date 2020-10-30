@@ -24,12 +24,12 @@
 </template>
 
 <script>
-import Nav from './Nav'
-import { getRecommendations } from '../services/api'
+import AppNav from './AppNav'
+import { getRecommendations } from '../../utils/api'
 export default {
   name: 'recommendations',
   components: {
-    Nav
+    AppNav
   },
   data () {
     return {

@@ -24,12 +24,12 @@
 </template>
 
 <script>
-import Nav from './Nav'
-import { getRecentlyPlayed } from '../services/api'
+import AppNav from './AppNav'
+import { getRecentlyPlayed } from '../../utils/api'
 export default {
   name: 'recentlyPlayed',
   components: {
-    Nav
+    AppNav
   },
   data () {
     return {

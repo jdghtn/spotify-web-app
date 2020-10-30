@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav></nav>
+    <app-nav></app-nav>
     <h3 class="text-center">Top Artists</h3>
     <hr/>
     <div class="container">
@@ -23,12 +23,12 @@
 </template>
 
 <script>
-import Nav from './Nav'
-import { getTopArtists } from '../services/api'
+import AppNav from './AppNav'
+import { getTopArtists } from '../../utils/api'
 export default {
   name: 'topArtists',
   components: {
-    Nav
+    AppNav
   },
   data () {
     return {
