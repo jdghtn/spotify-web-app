@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-sm-4" v-for="artist in topArtists" v-bind:key="artist.name">
           <div class="panel panel-default">
-            <div class="panel-heaing">
+            <div class="panel-heading">
               <h3 class="panel-title">
                 <a v-bind:href="artist.external_urls.spotify" target="new"> {{ artist.name }} </a>
               </h3>

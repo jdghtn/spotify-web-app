@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-sm-4" v-for="song in recentlyPlayed" v-bind:key="song.name">
           <div class="panel panel-default">
-            <div class="panel-heaing">
+            <div class="panel-heading">
               <h3 class="panel-title"> {{ song.track.name }} </h3>
               <span v-for="artist in song.track.album.artists" v-bind:key="artist.id">
                 <a v-bind:href="artist.external_urls.spotify" target="new"> {{ artist.name }} </a>
