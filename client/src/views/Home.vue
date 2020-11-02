@@ -36,7 +36,7 @@ export default {
 <style lang="scss" scoped>
   .hero {
     text-align: center;
-    background-image: url('https://headerart.weebly.com/uploads/5/7/5/7/5757212/285881_orig.jpg');
+    background-image: url('https://www.excellententertainment.biz/wp-content/uploads/2018/05/header-banner-black.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
