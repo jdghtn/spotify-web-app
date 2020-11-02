@@ -16,16 +16,13 @@
       </div>
     </div>
   </section>
-  <List />
 </div>
 </template>
 
 <script>
-import List from '../components/List';
 export default {
   name: 'home',
   components: {
-    List
   },
   methods: {
     // Log the user in

@@ -55,7 +55,7 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 // https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
 console.log(authorizeURL);
 
-spotifyApi.setAccessToken('BQCA1tLQMvJU2Xs0FM7yQMJM2lIkhYB_8luAi0VlUxntpVXU_dSICb_g6AHq9AtYpgbJCYfEwNYQDrSKcs64XMoV5B9y-nemmwziAi3ehC4Xy9NxhJwIjjo2EqdayPi2QKY78a2awuNmAB5_B49BQ4Q5aGROs1OdUP0OrDVX5tc7RVohrfI');
+spotifyApi.setAccessToken('BQD7xC0Qo-zMY8Emg62BdzJnG1JZ0ZBYv2Lie45L-iPY3mlx3_h8Tubzk_qea07dNSDxu9eS3tXLskr9IEsMUcyZzXfs_DzTPR1xpyZknXOEJn6J0PzRG-UOkNxnGpUCW0H-k7GIlRKQPaflhpBPrIbafJ0gnIj_8iotil2YzXAJLVhkhos');
 /* End Spotify */
 
 // Gets the user's top tracks.
@@ -77,7 +77,7 @@ app.get('/api/artists', (req, res) => {
   spotifyApi.getMyTopArtists({
     limit: 21
   }).then(function(data) {
-    let artists = data.body.items;
+    var artists = data.body.items;
     res.json(artists);
   }, function(err) {
     console.log('Something went wrong with artists!', err);
@@ -105,7 +105,7 @@ app.get('/api/recommendations', (req, res) => {
     limit: 21,
     min_energy: 0.4,
     seed_artists: ['6fcTRFpz0yH79qSKfof7lp', '23fqKkggKUBHNkbKtXEls4', '6heMlLFM6RDDHRz99uKMqS', '60d24wfXkVzDSfLS6hyCjZ', '1l2ekx5skC4gJH8djERwh1'],
-    min_popularity: 10
+    min_popularity: 50
   }).then(function(data) {
   let recommendations = data.body;
   res.json(recommendations);
