@@ -1,7 +1,7 @@
 <template>
   <div>
     <hr/>
-    <div class="container">
+    <div class="container text-center">
       <div class="row display-flex">
         <div class="col-sm-4" v-for="artist in topArtists" v-bind:key="artist.name">
           <div class="panel panel-default">
@@ -51,5 +51,8 @@ export default {
 .row.display-flex > [class*='col-'] {
   display: flex;
   flex-direction: column;
+}
+.container.text-center {
+  margin: auto; max-width: 600px;
 }
 </style>

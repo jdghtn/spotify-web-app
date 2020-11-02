@@ -55,7 +55,7 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 // https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
 console.log(authorizeURL);
 
-spotifyApi.setAccessToken('BQD7xC0Qo-zMY8Emg62BdzJnG1JZ0ZBYv2Lie45L-iPY3mlx3_h8Tubzk_qea07dNSDxu9eS3tXLskr9IEsMUcyZzXfs_DzTPR1xpyZknXOEJn6J0PzRG-UOkNxnGpUCW0H-k7GIlRKQPaflhpBPrIbafJ0gnIj_8iotil2YzXAJLVhkhos');
+spotifyApi.setAccessToken('BQDMCry4NZgaZ5fTo1B_GmKKKhpDb219joxwg_JKIeqFuyo__yojfoU4xvhgxOWJ_GqOv7FvRMsfpbKoIALdVeNovancusf0jGW0Wn2pZhhXEnnW36arvTdBt0i1gW0jkvNQCMVxTIUVHiRRVXw6DfX1xq9HX4Hnehgqsb-xJB7HwihbS5U');
 /* End Spotify */
 
 // Gets the user's top tracks.
@@ -107,10 +107,10 @@ app.get('/api/recommendations', (req, res) => {
     seed_artists: ['6fcTRFpz0yH79qSKfof7lp', '23fqKkggKUBHNkbKtXEls4', '6heMlLFM6RDDHRz99uKMqS', '60d24wfXkVzDSfLS6hyCjZ', '1l2ekx5skC4gJH8djERwh1'],
     min_popularity: 50
   }).then(function(data) {
-  let recommendations = data.body;
-  res.json(recommendations);
+    let recommendations = data.body;
+    res.json(recommendations);
   }, function(err) {
-  console.log("Something went wrong with recommendations!", err);
+    console.log("Something went wrong with recommendations!", err);
   });
 })
 
