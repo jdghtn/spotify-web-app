@@ -2,7 +2,7 @@
   <div>
     <hr/>
     <div class="container">
-      <div class="row">
+      <div class="row display-flex">
         <div class="col-sm-4" v-for="song in recommendations.tracks" v-bind:key="song.id">
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -45,4 +45,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.row.display-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.display-flex > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
 </style>
