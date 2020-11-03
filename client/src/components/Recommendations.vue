@@ -56,4 +56,14 @@ export default {
 .container.text-center {
   margin: auto; max-width: 600px;
 }
+h3 {
+  color: black;
+  font-size: 17px;
+  font-weight:bold;
+}
+a {
+  color: black;
+  font-size: 17px;
+  font-weight:normal;
+} 
 </style>

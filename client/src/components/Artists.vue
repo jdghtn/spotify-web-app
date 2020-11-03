@@ -55,4 +55,9 @@ export default {
 .container.text-center {
   margin: auto; max-width: 600px;
 }
+a {
+  color: black;
+  font-size: 17px;
+  font-weight:bold;
+} 
 </style>
