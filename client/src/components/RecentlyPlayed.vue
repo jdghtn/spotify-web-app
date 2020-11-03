@@ -7,7 +7,7 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <h3 class="panel-title"> {{ song.track.name }} </h3>
-              <span v-for="artist in song.track.album.artists" v-bind:key="artist.id">
+              <span v-for="artist in song.track.album.artists" v-bind:key="artist.id" class="insertComma">
                 <a v-bind:href="artist.external_urls.spotify" target="new"> {{ artist.name }} </a>
               </span>
             </div>
