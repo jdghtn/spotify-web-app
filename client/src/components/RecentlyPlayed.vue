@@ -56,14 +56,18 @@ export default {
 .container.text-center {
   margin: auto; max-width: 600px;
 }
+.insertComma + .insertComma:before {
+  content: ", ";
+  font-weight: normal;
+}
 h3 {
   color: black;
   font-size: 17px;
-  font-weight:bold;
+  font-weight: bold;
 }
 a {
   color: black;
   font-size: 17px;
-  font-weight:normal;
+  font-weight: normal;
 } 
 </style>

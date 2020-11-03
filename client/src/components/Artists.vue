@@ -58,6 +58,6 @@ export default {
 a {
   color: black;
   font-size: 17px;
-  font-weight:bold;
+  font-weight: bold;
 } 
 </style>
