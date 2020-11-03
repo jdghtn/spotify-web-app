@@ -26,7 +26,6 @@ import { getRecommendations } from '../../utils/api'
 export default {
   name: 'recommendations',
   data () {
-
     return {
       recommendations: ''
     }
