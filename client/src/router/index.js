@@ -1,5 +1,5 @@
 import Vue from 'vue'
-// import Vuex from 'vuex'
+import Vuex from 'vuex'
 import Router from 'vue-router'
 import Home from '@/views/Home'
 import About from '@/views/About'
@@ -10,6 +10,7 @@ import Recommendations from '@/components/Recommendations'
 // import { authGuard } from "../auth/authGuard";
 
 Vue.use(Router)
+Vue.use(Vuex)
 
 export default new Router({
   mode: 'history',
