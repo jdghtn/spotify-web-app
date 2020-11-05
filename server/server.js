@@ -55,7 +55,7 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 // https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
 console.log(authorizeURL);
 
-spotifyApi.setAccessToken('BQBTIUsiReWSx8G77HUtq4F9Z0QVwQX2Q_f3d69yytmOaWSeF5sjvHVvUOeueWsBzvraT5GaCrgIq08OOwD7_awik-ThoRPhRIIvmDE36OaL0gkaOf11ydr3vkpNIfXky5YBtrwloGzY7vLXMGzgG--MXb2dRrG5otg');
+spotifyApi.setAccessToken('BQA0ur8BjZYs1hnDzM6P_MVWsMX6galh0Wbhl_oTugmTAWbR0QoK8ovd2i83j7y5PF4W5YC1GpJMGVVQXgjrQw09sAfIVDJi_GoeAWYPO_OT-GrB0qGLaVyX8UVPu4dNe5IlnKEtyTqb5y_M8lvvhqBjZ_sDf-gc7qeFsoIxsJW5xiNqGDQ');
 /* End Spotify */
 
 // Gets the user's top tracks.
@@ -100,34 +100,24 @@ app.get('/api/recently-played', (req, res) => {
 
 // Get Recommendations Based on Seeds (based off of top 5 artists?)
 app.get('/api/recommendations', (req, res) => {
-
-
-  console.log('The call to api/artists was received.');
-
+  // Get top 5 artists
   spotifyApi.getMyTopArtists({
-      limit: 21
+      limit: 5
   }).then(function(data) {
-    console.log('data received');
-
     var artists = data.body.items;
-
     //build array of artist id's
     var seed_artists_array = new Array();
     for (var i = 0; i < 4; i++) {
-      console.log('artist id: ' +  artists[i].id);
       seed_artists_array.push(artists[i].id)
     }
-    //res.json(seed_artists_array);
     
     console.log('The call to api/recommendations was received.');
     spotifyApi.getRecommendations({
       limit: 21,
       min_energy: 0.4,
-      seed_artists: seed_artists_array,
+      seed_artists: seed_artists_array, // Use top 5 artists
       min_popularity: 50
     }).then(function(data) {
-      console.log('data received');
-
       let recommendations = data.body;
       res.json(recommendations);
     }, function(err) {
@@ -135,7 +125,7 @@ app.get('/api/recommendations', (req, res) => {
     });
 
   }, function(err) {
-    console.log('Something went wrong with artists!', err);
+    console.log('Something went wrong with the top 5 artists!', err);
   });
 
 
