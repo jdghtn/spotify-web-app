@@ -16,6 +16,51 @@
       </div>
     </div>
   </section>
+
+  <section class="cards text-center">
+    <div class="row display-flex">
+      <div class="col-sm-2">
+        <div class="card" style="width: 15rem;">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-2">
+        <div class="card" style="width: 15rem;">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-2">
+        <div class="card" style="width: 15rem;">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-2">
+        <div class="card" style="width: 15rem;">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
 </div>
 </template>
 
@@ -72,5 +117,16 @@ export default {
   }
   .is-xl {
     font-size: 1.7rem;
+  }
+  .row.display-flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .row.display-flex > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  }
+  .cards {
+
   }
 </style>
