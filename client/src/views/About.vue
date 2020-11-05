@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <div class="hero is-primary">
+    <div class="hero">
       <div class="hero-body">
         <div class="title-container">
           <h1 class="title is-size-1">About -ify</h1>
@@ -22,6 +22,5 @@
   }
   // About background colour
   .hero-body {
-      background-color: black;
-  }
+    background-image: url('../../public/gradient.jpg');  }
 </style>

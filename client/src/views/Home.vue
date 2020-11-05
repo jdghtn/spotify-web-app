@@ -1,6 +1,6 @@
 <template>
 <div class="home">
-  <section class="hero is-dark">
+  <section class="hero">
     <div class="hero-body">
       <div class="container">
         <h1 class="title">
@@ -35,21 +35,19 @@ export default {
 
 <style lang="scss" scoped>
   .hero {
+    background-image: url('../../public/gradient.jpg');
     text-align: center;
-    background-image: url('https://www.excellententertainment.biz/wp-content/uploads/2018/05/header-banner-black.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 400px;
+    height: 325px;
   }
   .hero-body .title {
-    // color: black; ???
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
     padding: 40px 0 20px 0;
     font-size: 60px;
   }
   .subtitle {
-    // color: black; ???
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
     font-size: 30px;
   }
