@@ -55,7 +55,7 @@ var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 // https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
 console.log(authorizeURL);
 
-spotifyApi.setAccessToken('BQAHxkx4DX7WJP9uGmoErjVeEzZZD-pC2g7v1hhsFsO8DmhvENZdKYBSUW0BYBPxYarlyzMcaNMzvS-7aYlh6bGO2Y4wgaIzp9inrJTXJb1-aW6cCVvIQpVxN8W7-2qGuIUhLu05Xg9WIqlHkbzCHbxF1SVnjFH6brwh3sxhTS1fcwL0hfk');
+spotifyApi.setAccessToken('BQBTIUsiReWSx8G77HUtq4F9Z0QVwQX2Q_f3d69yytmOaWSeF5sjvHVvUOeueWsBzvraT5GaCrgIq08OOwD7_awik-ThoRPhRIIvmDE36OaL0gkaOf11ydr3vkpNIfXky5YBtrwloGzY7vLXMGzgG--MXb2dRrG5otg');
 /* End Spotify */
 
 // Gets the user's top tracks.
@@ -100,18 +100,45 @@ app.get('/api/recently-played', (req, res) => {
 
 // Get Recommendations Based on Seeds (based off of top 5 artists?)
 app.get('/api/recommendations', (req, res) => {
-  console.log('The call to api/recommendations was received.');
-  spotifyApi.getRecommendations({
-    limit: 21,
-    min_energy: 0.4,
-    seed_artists: ['6fcTRFpz0yH79qSKfof7lp', '23fqKkggKUBHNkbKtXEls4', '6heMlLFM6RDDHRz99uKMqS', '60d24wfXkVzDSfLS6hyCjZ', '1l2ekx5skC4gJH8djERwh1'],
-    min_popularity: 50
+
+
+  console.log('The call to api/artists was received.');
+
+  spotifyApi.getMyTopArtists({
+      limit: 21
   }).then(function(data) {
-    let recommendations = data.body;
-    res.json(recommendations);
+    console.log('data received');
+
+    var artists = data.body.items;
+
+    //build array of artist id's
+    var seed_artists_array = new Array();
+    for (var i = 0; i < 4; i++) {
+      console.log('artist id: ' +  artists[i].id);
+      seed_artists_array.push(artists[i].id)
+    }
+    //res.json(seed_artists_array);
+    
+    console.log('The call to api/recommendations was received.');
+    spotifyApi.getRecommendations({
+      limit: 21,
+      min_energy: 0.4,
+      seed_artists: seed_artists_array,
+      min_popularity: 50
+    }).then(function(data) {
+      console.log('data received');
+
+      let recommendations = data.body;
+      res.json(recommendations);
+    }, function(err) {
+      console.log("Something went wrong with recommendations!", err);
+    });
+
   }, function(err) {
-    console.log("Something went wrong with recommendations!", err);
+    console.log('Something went wrong with artists!', err);
   });
+
+
 })
 
 app.listen(3333);
