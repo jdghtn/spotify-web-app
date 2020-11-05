@@ -3,10 +3,10 @@ import Vuex from 'vuex'
 import Router from 'vue-router'
 import Home from '@/views/Home'
 import About from '@/views/About'
-import Tracks from '@/components/Tracks'
-import Artists from '@/components/Artists'
-import RecentlyPlayed from '@/components/RecentlyPlayed'
-import Recommendations from '@/components/Recommendations'
+import Tracks from '@/views/Tracks'
+import Artists from '@/views/Artists'
+import RecentlyPlayed from '@/views/RecentlyPlayed'
+import Recommendations from '@/views/Recommendations'
 // import { authGuard } from "../auth/authGuard";
 
 Vue.use(Router)
