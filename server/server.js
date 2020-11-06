@@ -11,13 +11,13 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-// Set up Auth0 configuration
+// Set up Auth0 configuration.
 const authConfig = {
   domain: "dev-7xyy3hfo.us.auth0.com",
   audience: "https://spotify-web-api.com"
 };
 
-// Create middleware to validate the JWT using express-jwt
+// Create middleware to validate the JWT using express-jwt.
 const checkJwt = jwt({
   // Provide a signing key based on the key identifier in the header and the signing keys provided by your Auth0 JWKS endpoint.
   secret: jwksRsa.expressJwtSecret({
@@ -49,7 +49,7 @@ var spotifyApi = new SpotifyWebApi({
   clientId: clientId
 });
 
-// Create the authorization URL
+// Create the authorization URL.
 var authorizeURL = spotifyApi.createAuthorizeURL(scopes, state);
 
 // https://accounts.spotify.com:443/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https://example.com/callback&scope=user-read-private%20user-read-email&state=some-state-of-my-choice
@@ -58,7 +58,7 @@ console.log(authorizeURL);
 spotifyApi.setAccessToken('BQA0ur8BjZYs1hnDzM6P_MVWsMX6galh0Wbhl_oTugmTAWbR0QoK8ovd2i83j7y5PF4W5YC1GpJMGVVQXgjrQw09sAfIVDJi_GoeAWYPO_OT-GrB0qGLaVyX8UVPu4dNe5IlnKEtyTqb5y_M8lvvhqBjZ_sDf-gc7qeFsoIxsJW5xiNqGDQ');
 /* End Spotify */
 
-// Gets the user's top tracks.
+// Gets the user's top tracks from Spotify.
 app.get('/api/tracks', (req, res) => {
   console.log('The call to api/tracks received.');
   spotifyApi.getMyTopTracks({
@@ -71,7 +71,7 @@ app.get('/api/tracks', (req, res) => {
   });
 })
 
-// Gets the user's top artists.
+// Gets the user's top artists from Spotify.
 app.get('/api/artists', (req, res) => {
   console.log('The call to api/artists was received.');
   spotifyApi.getMyTopArtists({
@@ -84,7 +84,7 @@ app.get('/api/artists', (req, res) => {
   });
 })
 
-// Gets the user's recently played tracks.
+// Gets the user's recently played tracks from Spotify.
 app.get('/api/recently-played', (req, res) => {
   console.log('The call to api/recently-played was received.');
   spotifyApi.getMyRecentlyPlayedTracks({
@@ -98,24 +98,25 @@ app.get('/api/recently-played', (req, res) => {
     });
 })
 
-// Get Recommendations Based on Seeds (based off of top 5 artists?)
+// Gets Recommendations from Spotify.
 app.get('/api/recommendations', (req, res) => {
-  // Get top 5 artists
+  // Gets top 5 artists.
   spotifyApi.getMyTopArtists({
       limit: 5
   }).then(function(data) {
     var artists = data.body.items;
-    //build array of artist id's
+    // Builds an array of artist IDs.
     var seed_artists_array = new Array();
     for (var i = 0; i < 4; i++) {
       seed_artists_array.push(artists[i].id)
     }
-    
+
     console.log('The call to api/recommendations was received.');
     spotifyApi.getRecommendations({
       limit: 21,
       min_energy: 0.4,
-      seed_artists: seed_artists_array, // Use top 5 artists
+      // Use top 5 artist IDs as seeds.
+      seed_artists: seed_artists_array,
       min_popularity: 50
     }).then(function(data) {
       let recommendations = data.body;
@@ -127,8 +128,6 @@ app.get('/api/recommendations', (req, res) => {
   }, function(err) {
     console.log('Something went wrong with the top 5 artists!', err);
   });
-
-
 })
 
 app.listen(3333);
