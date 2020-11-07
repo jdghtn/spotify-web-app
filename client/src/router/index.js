@@ -7,7 +7,7 @@ import Tracks from '@/views/Tracks'
 import Artists from '@/views/Artists'
 import RecentlyPlayed from '@/views/RecentlyPlayed'
 import Recommendations from '@/views/Recommendations'
-// import { authGuard } from "../auth/authGuard";
+import { authGuard } from "../auth/authGuard";
 
 Vue.use(Router)
 Vue.use(Vuex)
@@ -29,28 +29,28 @@ export default new Router({
       path: '/tracks',
       name: 'Tracks',
       component: Tracks,
-      // beforeEnter: authGuard
+      beforeEnter: authGuard
 
     },
     {
       path: '/artists',
       name: 'Artists',
       component: Artists,
-      // beforeEnter: authGuard
+      beforeEnter: authGuard
 
     },
     {
       path: '/recently-played',
       name: 'RecentlyPlayed',
       component: RecentlyPlayed,
-      // beforeEnter: authGuard
+      beforeEnter: authGuard
 
     },
     {
       path: '/recommendations',
       name: 'Recommendations',
       component: Recommendations,
-      // beforeEnter: authGuard
+      beforeEnter: authGuard
 
     }
   ]
