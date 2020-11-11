@@ -13,6 +13,10 @@
           <button v-if="!$auth.isAuthenticated" @click="login" class="button is-xl is-dark">Sign Up to Browse Events</button>
           <h3 v-if="$auth.isAuthenticated" class="is-size-3 has-background-dark welcome">Welcome, {{ $auth.user.name }}!</h3>
         </div> -->
+        <!-- there's probably a better way to do this but it-->
+        <td width="600" height="75" valign="middle"> 
+          <img style="position:absolute" src='../../public/notes.png'  width="700"/>
+        </td>
       </div>
     </div>
   </section>
@@ -40,15 +44,15 @@ export default {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 325px;
+    height: 640px;
   }
   .hero-body .title {
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
+    // text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
     padding: 40px 0 20px 0;
     font-size: 60px;
   }
   .subtitle {
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
+    // text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.7);
     font-size: 30px;
   }
   .button-block {

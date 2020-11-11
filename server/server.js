@@ -49,7 +49,7 @@ const spotifyApi = new SpotifyWebApi({
   clientSecret: process.argv.slice(2)[1]
 });
 
-app.get('/login', (req, res) => {
+app.get('/', (req, res) => {
   res.redirect(spotifyApi.createAuthorizeURL(scopes));
 });
 
@@ -96,7 +96,6 @@ app.get('/callback', (req, res) => {
       res.send(`Error getting Tokens: ${error}`);
     });
 });
-
 /* End Spotify */
 
 // Gets the user's top tracks from Spotify.
