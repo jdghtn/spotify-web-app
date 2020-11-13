@@ -14,9 +14,9 @@
           <h3 v-if="$auth.isAuthenticated" class="is-size-3 has-background-dark welcome">Welcome, {{ $auth.user.name }}!</h3>
         </div> -->
         <!-- there's probably a better way to do this but it-->
-        <td width="600" height="75" valign="middle"> 
-          <img style="position:absolute" src='../../public/notes.png'  width="700"/>
-        </td>
+        <div class="notes"> 
+          <img class="img" src='../../public/notes.png'/>
+        </div>
       </div>
     </div>
   </section>
@@ -77,12 +77,10 @@ export default {
   .is-xl {
     font-size: 1.7rem;
   }
-  .row.display-flex {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .row.display-flex > [class*='col-'] {
-    display: flex;
-    flex-direction: column;
+  .notes {
+    width: 50%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 </style>

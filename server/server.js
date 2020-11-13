@@ -49,7 +49,7 @@ const spotifyApi = new SpotifyWebApi({
   clientSecret: process.argv.slice(2)[1]
 });
 
-app.get('/', (req, res) => {
+app.get('/login', (req, res) => {
   res.redirect(spotifyApi.createAuthorizeURL(scopes));
 });
 

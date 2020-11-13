@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="description-container">
-      <p class="description is-size-4">
+      <p class="description is-size-4 text-align:center">
           Hello! My name is Joel and I'm a fourth-year computer science student at Acadia University.
           I created a web-based application for Spotify that will show you your Top Tracks, Top Artists, Recently Played Songs, and make recommendations based off of your top artists.
       </p>
@@ -17,10 +17,15 @@
   </div>
 </template>
 <style lang="scss" scoped>
-  .description-container {
-    margin-top: 50px;
-  }
-  // About background colour
-  .hero-body {
-    background-image: url('../../public/gradient.jpg');  }
+.description-container {
+  margin-top: 50px;
+}
+// About background colour
+.hero-body {
+  background-image: url('../../public/gradient.jpg');
+}
+.description-container {
+  margin: auto;
+  padding: 50px;
+}
 </style>
