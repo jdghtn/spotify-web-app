@@ -14,12 +14,12 @@
     <div class="navbar-start">
       <router-link to="/" class="navbar-item">Home</router-link>
       <router-link to="/about" class="navbar-item">About</router-link>
-      <a v-if="$auth.isAuthenticated">
+      <!-- <a v-if="$auth.isAuthenticated"> -->
         <router-link to="/tracks" class="navbar-item">Top Tracks</router-link>
         <router-link to="/artists" class="navbar-item">Top Artists</router-link>
         <router-link to="/recently-played" class="navbar-item">Recently Played</router-link>
         <router-link to="/recommendations" class="navbar-item">Recommendations</router-link>
-      </a>
+      <!-- </a> -->
     </div>
     <div class="navbar-end">
       <div class="navbar-item">
