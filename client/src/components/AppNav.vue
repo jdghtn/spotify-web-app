@@ -45,8 +45,10 @@ export default {
   methods: {
     // Log the user in
     login() {
-      window.location.href = 'http://localhost:3333/login';
-      // this.$auth.loginWithRedirect();
+      // window.location.href = 'http://localhost:3333/login';
+      this.$auth.loginWithRedirect({
+        redirect_uri: 'http://localhost:3333/login'
+      });
     },
     // Log the user out
     logout() {
