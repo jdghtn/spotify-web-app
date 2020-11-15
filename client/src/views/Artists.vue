@@ -13,7 +13,7 @@
               </h3>
             </div>
             <div>
-              <!-- Dispays the album art. -->
+              <!-- Displays the album art. -->
               <img class="img-responsive" v-bind:src="artist.images[0].url">
             </div>
           </div>

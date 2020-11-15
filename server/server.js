@@ -12,26 +12,26 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // Set up Auth0 configuration.
-const authConfig = {
-  domain: "dev-7xyy3hfo.us.auth0.com",
-  audience: "https://spotify-web-api.com"
-};
+// const authConfig = {
+//   domain: "dev-7xyy3hfo.us.auth0.com",
+//   audience: "https://spotify-web-api.com"
+// };
 
 // Create middleware to validate the JWT using express-jwt.
-const checkJwt = jwt({
+// const checkJwt = jwt({
   // Provide a signing key based on the key identifier in the header and the signing keys provided by your Auth0 JWKS endpoint.
-  secret: jwksRsa.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: `https://${authConfig.domain}/.well-known/jwks.json`
-  }),
+  // secret: jwksRsa.expressJwtSecret({
+  //   cache: true,
+  //   rateLimit: true,
+  //   jwksRequestsPerMinute: 5,
+  //   jwksUri: `https://${authConfig.domain}/.well-known/jwks.json`
+  // }),
 
   // Validate the audience (Identifier) and the issuer (Domain).
-  audience: authConfig.audience,
-  issuer: `https://${authConfig.domain}/`,
-  algorithms: ["RS256"]
-});
+//   audience: authConfig.audience,
+//   issuer: `https://${authConfig.domain}/`,
+//   algorithms: ["RS256"]
+// });
 
 /* Start Spotify */
 var SpotifyWebApi = require('spotify-web-api-node');
@@ -80,7 +80,7 @@ app.get('/callback', (req, res) => {
       console.log(
         `Sucessfully retreived access token. Expires in ${expires_in} s.`
       );
-      res.send('Success! You can now close the window.');
+      res.redirect('http://localhost:8080/')
 
       setInterval(async () => {
         const data = await spotifyApi.refreshAccessToken();

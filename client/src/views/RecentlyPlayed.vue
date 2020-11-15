@@ -15,7 +15,7 @@
               </span>
             </div>
             <div>
-              <!-- Dispays the album art. -->
+              <!-- Displays the album art. -->
               <img class="img-responsive" v-bind:src="song.track.album.images[0].url">
             </div>
           </div>
