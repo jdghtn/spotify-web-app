@@ -10,25 +10,29 @@ export {getRecentlyPlayed};
 export {getRecommendations};
 
 // Gets the user's top tracks from localhost:3333.
-function getTopTracks() {
+async function getTopTracks() {
   const url = `${BASE_URL}/api/tracks`;
-  return axios.get(url).then(response => response.data);
+  const response = await axios.get(url);
+  return response.data;
 }
 
 // Gets the user's top artists from localhost:3333.
-function getTopArtists() {
+async function getTopArtists() {
   const url = `${BASE_URL}/api/artists`;
-  return axios.get(url).then(response => response.data);
+  const response = await axios.get(url);
+  return response.data;
 }
 
 // Gets the user's recently played songs from localhost:3333.
-function getRecentlyPlayed() {
+async function getRecentlyPlayed() {
   const url = `${BASE_URL}/api/recently-played`;
-  return axios.get(url).then(response => response.data);
+  const response = await axios.get(url);
+  return response.data;
 }
 
 // Gets recommendations from localhost:3333.
-function getRecommendations() {
+async function getRecommendations() {
   const url = `${BASE_URL}/api/recommendations`;
-  return axios.get(url).then(response => response.data);
+  const response = await axios.get(url);
+  return response.data;
 }
