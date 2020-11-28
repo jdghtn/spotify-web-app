@@ -4,10 +4,10 @@ import axios from 'axios';
 const BASE_URL = 'http://localhost:3333';
 
 // Allows the functions to be referenced in other files.
-export {getTopTracks};
-export {getTopArtists};
-export {getRecentlyPlayed};
-export {getRecommendations};
+export { getTopTracks };
+export { getTopArtists };
+export { getRecentlyPlayed };
+export { getRecommendations };
 
 // Gets the user's top tracks from localhost:3333.
 async function getTopTracks() {

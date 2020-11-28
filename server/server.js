@@ -104,10 +104,10 @@ app.get('/api/tracks', (req, res) => {
   console.log('The call to api/tracks received.');
   spotifyApi.getMyTopTracks({
     limit: 21
-  }).then(function(data) {
+  }).then(function (data) {
     let tracks = data.body.items;
     res.json(tracks);
-  }, function(err) {
+  }, function (err) {
     console.log('Something went wrong with tracks!', err);
   });
 })
@@ -117,10 +117,10 @@ app.get('/api/artists', (req, res) => {
   console.log('The call to api/artists was received.');
   spotifyApi.getMyTopArtists({
     limit: 21
-  }).then(function(data) {
+  }).then(function (data) {
     var artists = data.body.items;
     res.json(artists);
-  }, function(err) {
+  }, function (err) {
     console.log('Something went wrong with artists!', err);
   });
 })
@@ -129,22 +129,22 @@ app.get('/api/artists', (req, res) => {
 app.get('/api/recently-played', (req, res) => {
   console.log('The call to api/recently-played was received.');
   spotifyApi.getMyRecentlyPlayedTracks({
-    limit : 21
-  }).then(function(data) {
-      let played = data.body.items;
-      played.forEach(item => (item.track));
-      res.json(played);
-    }, function(err) {
-      console.log('Something went wrong with recently played!', err);
-    });
+    limit: 21
+  }).then(function (data) {
+    let played = data.body.items;
+    played.forEach(item => (item.track));
+    res.json(played);
+  }, function (err) {
+    console.log('Something went wrong with recently played!', err);
+  });
 })
 
 // Gets Recommendations from Spotify.
 app.get('/api/recommendations', (req, res) => {
   // Gets top 5 artists.
   spotifyApi.getMyTopArtists({
-      limit: 5
-  }).then(function(data) {
+    limit: 5
+  }).then(function (data) {
     var artists = data.body.items;
     // Builds an array of artist IDs.
     var seed_artists_array = new Array();
@@ -159,14 +159,14 @@ app.get('/api/recommendations', (req, res) => {
       // Use top 5 artist IDs as seeds.
       seed_artists: seed_artists_array,
       min_popularity: 50
-    }).then(function(data) {
+    }).then(function (data) {
       let recommendations = data.body;
       res.json(recommendations);
-    }, function(err) {
+    }, function (err) {
       console.log("Something went wrong with recommendations!", err);
     });
 
-  }, function(err) {
+  }, function (err) {
     console.log('Something went wrong with the top 5 artists!', err);
   });
 })
