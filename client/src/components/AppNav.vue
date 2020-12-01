@@ -1,25 +1,18 @@
 <template>
 <nav class="navbar container" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item">  <!-- href="/"> -->
+    <a class="navbar-item">
       <strong class="is-size-4">-ify</strong>
     </a>
-    <!-- <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a> -->
   </div>
   <div id="navbar" class="navbar-menu">
     <div class="navbar-start">
       <router-link to="/" class="navbar-item">Home</router-link>
       <router-link to="/about" class="navbar-item">About</router-link>
-      <!-- <a v-if="$auth.isAuthenticated"> -->
         <router-link to="/tracks" class="navbar-item">Top Tracks</router-link>
         <router-link to="/artists" class="navbar-item">Top Artists</router-link>
         <router-link to="/recently-played" class="navbar-item">Recently Played</router-link>
         <router-link to="/recommendations" class="navbar-item">Recommendations</router-link>
-      <!-- </a> -->
     </div>
     <div class="navbar-end">
       <div class="navbar-item">
@@ -45,7 +38,6 @@ export default {
   methods: {
     // Log the user in
     login() {
-      // window.location.href = 'http://localhost:3333/login';
       this.$auth.loginWithRedirect({
         redirect_uri: 'http://localhost:3333/login'
       });

@@ -9,12 +9,8 @@
         <h2 class="subtitle">
           Your Top Tracks, Top Artists, and much more at your fingertips.
         </h2>
-        <!-- <div class="button-block">
-          <button v-if="!$auth.isAuthenticated" @click="login" class="button is-xl is-dark">Sign Up to Browse Events</button>
-          <h3 v-if="$auth.isAuthenticated" class="is-size-3 has-background-dark welcome">Welcome, {{ $auth.user.name }}!</h3>
-        </div> -->
         <!-- there's probably a better way to do this but it-->
-        <div class="notes"> 
+        <div class="notes">
           <img class="img" src='../../public/notes.png'/>
         </div>
       </div>
@@ -44,7 +40,8 @@ export default {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 640px;
+    max-width: 100%;
+    height: 100vh;
   }
   .hero-body .title {
     // text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.6);
