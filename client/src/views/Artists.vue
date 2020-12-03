@@ -34,15 +34,15 @@ export default {
     }
   },
   methods: {
-    // The local getTopArtists function calls to the getTopArtists function in api.js (line 27).
+    // The local getTopArtists function calls to the getTopArtists function in api.js.
     getTopArtists () {
-      // Response from localhost:3333/api/artists is stored locally.
+      // Response from api.js is stored locally.
       getTopArtists().then((artists) => {
         this.topArtists = artists
       })
     }
   },
-  // Executes when the page is loaded.
+  // Executes when the page is loaded. Necessary for template access.
   mounted () {
     this.getTopArtists()
   }
@@ -65,5 +65,5 @@ a {
   color: black;
   font-size: 17px;
   font-weight: bold;
-} 
+}
 </style>

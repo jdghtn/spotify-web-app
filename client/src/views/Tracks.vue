@@ -36,15 +36,15 @@ export default {
     }
   },
   methods: {
-    // The local getTopTracks function calls to the getTopTracks function in api.js (line 29).
+    // The local getTopTracks function calls to the getTopTracks function in api.js.
     getTopTracks () {
-      // Response from localhost:3333/api/tracks is stored locally.
+      // Response from api.js is stored locally.
       getTopTracks().then((songs) => {
         this.topTracks = songs
       })
     }
   },
-  // Executes when the page is loaded.
+  // Executes when the page is loaded. Necessary for template access.
   mounted () {
     this.getTopTracks()
   }

@@ -36,15 +36,15 @@ export default {
     }
   },
   methods: {
-    // The local getRecentlyPlayed function calls to the getRecentlyPlayed function in api.js (line 29).
+    // The local getRecentlyPlayed function calls to the getRecentlyPlayed function in api.js.
     getRecentlyPlayed () {
-      // Response from localhost:3333/api/recently-played is stored locally.
+      // Response from api.js is stored locally.
       getRecentlyPlayed().then((plays) => {
         this.recentlyPlayed = plays
       })
     }
   },
-  // Executes when the page is loaded.
+  // Executes when the page is loaded. Necessary for template access.
   mounted () {
     this.getRecentlyPlayed()
   }
@@ -76,5 +76,5 @@ a {
   color: black;
   font-size: 17px;
   font-weight: normal;
-} 
+}
 </style>

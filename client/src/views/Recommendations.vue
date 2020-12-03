@@ -36,15 +36,15 @@ export default {
     }
   },
   methods: {
-    // The local getRecommendations function calls to the getRecommendations function in api.js (line 29).
+    // The local getRecommendations function calls to the getRecommendations function in api.js.
     getRecommendations () {
-      // Response from localhost:3333/api/recommendations is stored locally.
+      // Response from api.js is stored locally.
       getRecommendations().then((recommended) => {
         this.recommendations = recommended
       })
     }
   },
-  // Executes when the page is loaded.
+  // Executes when the page is loaded. Necessary for template access.
   mounted () {
     this.getRecommendations()
   }
@@ -76,5 +76,5 @@ a {
   color: black;
   font-size: 17px;
   font-weight: normal;
-} 
+}
 </style>
