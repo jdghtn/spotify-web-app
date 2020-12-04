@@ -38,21 +38,25 @@ var SpotifyWebApi = require('spotify-web-api-node');
 const { json } = require('body-parser');
 const { response } = require('express');
 
+// Scopes
 const scopes = [
   'user-read-recently-played',
   'user-top-read',
 ];
 
+// spotifyApi instance.
 const spotifyApi = new SpotifyWebApi({
   redirectUri: 'http://localhost:3333/callback',
   clientId: process.argv.slice(2)[0],
   clientSecret: process.argv.slice(2)[1]
 });
 
+// Scope agreement URL
 app.get('/login', (req, res) => {
   res.redirect(spotifyApi.createAuthorizeURL(scopes));
 });
 
+// Token generation / refresh
 app.get('/callback', (req, res) => {
   const error = req.query.error;
   const code = req.query.code;
@@ -100,6 +104,7 @@ app.get('/callback', (req, res) => {
 /* End Spotify */
 
 // Gets the user's top tracks from Spotify.
+// Routes the HTTP request to the specified path.
 app.get('/api/tracks', (req, res) => {
   console.log('The call to api/tracks received.');
   spotifyApi.getMyTopTracks({
@@ -113,6 +118,7 @@ app.get('/api/tracks', (req, res) => {
 })
 
 // Gets the user's top artists from Spotify.
+// Routes the HTTP request to the specified path.
 app.get('/api/artists', (req, res) => {
   console.log('The call to api/artists was received.');
   spotifyApi.getMyTopArtists({
@@ -126,6 +132,7 @@ app.get('/api/artists', (req, res) => {
 })
 
 // Gets the user's recently played tracks from Spotify.
+// Routes the HTTP request to the specified path.
 app.get('/api/recently-played', (req, res) => {
   console.log('The call to api/recently-played was received.');
   spotifyApi.getMyRecentlyPlayedTracks({
@@ -140,6 +147,7 @@ app.get('/api/recently-played', (req, res) => {
 })
 
 // Gets Recommendations from Spotify.
+// Routes the HTTP request to the specified path.
 app.get('/api/recommendations', (req, res) => {
   // Gets top 5 artists.
   spotifyApi.getMyTopArtists({
