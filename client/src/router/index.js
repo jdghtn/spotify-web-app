@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '@/views/Home';
-import About from '@/views/About';
-import Tracks from '@/views/Tracks';
-import Artists from '@/views/Artists';
-import RecentlyPlayed from '@/views/RecentlyPlayed';
-import Recommendations from '@/views/Recommendations';
+import Home from '@/features/Home';
+import About from '@/features/About';
+import Tracks from '@/features/Tracks';
+import Artists from '@/features/Artists';
+import RecentlyPlayed from '@/features/RecentlyPlayed';
+import Recommendations from '@/features/Recommendations';
 import { authGuard } from '../auth/authGuard';
 
 Vue.use(Router);
