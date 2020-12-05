@@ -1,7 +1,7 @@
 <template>
   <div id="App">
     <AppNav />
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
@@ -10,9 +10,9 @@ import AppNav from './components/AppNav.vue';
 export default {
   name: 'App',
   components: {
-    AppNav
-  }
-}
+    AppNav,
+  },
+};
 </script>
 
 <style lang="scss">

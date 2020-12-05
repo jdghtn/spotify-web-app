@@ -1,4 +1,4 @@
-import { getInstance } from "./index";
+import { getInstance } from './index';
 
 export const authGuard = (to, from, next) => {
   const authService = getInstance();
@@ -19,7 +19,7 @@ export const authGuard = (to, from, next) => {
   }
 
   // Watch for the loading property to change before checking isAuthenticated
-  authService.$watch("loading", loading => {
+  authService.$watch('loading', (loading) => {
     if (loading === false) {
       return fn();
     }

@@ -9,8 +9,10 @@
     </div>
     <div class="description-container">
       <p class="description is-size-4 text-align:center">
-          Hello! My name is Joel and I'm a fourth-year computer science student at Acadia University.
-          I created a web-based application for Spotify to display your Top Tracks, Top Artists, Recently Played Songs, and make song recommendations.
+        Hello! My name is Joel and I'm a fourth-year computer science student at
+        Acadia University. I created a web-based application for Spotify to
+        display your Top Tracks, Top Artists, Recently Played Songs, and make
+        song recommendations.
       </p>
       <!-- <p class="org-description is-size-4">...</p> -->
     </div>
