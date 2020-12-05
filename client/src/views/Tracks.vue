@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { getTopTracks } from '../../utils/api' // api.js
+import { getTopTracks } from '../../utils/service' // service.js
 export default {
   name: 'topTracks',
   data () {
@@ -36,9 +36,9 @@ export default {
     }
   },
   methods: {
-    // The local getTopTracks function calls to the getTopTracks function in api.js.
-    getTopTracks () {
-      // Response from api.js is stored locally.
+    // Calls to the getTopTracks function in service.js.
+    getTopTracksFromService () {
+      // Response from service.js is stored locally.
       getTopTracks().then((songs) => {
         this.topTracks = songs
       })
@@ -46,7 +46,7 @@ export default {
   },
   // Executes when the page is loaded. Necessary for template access.
   mounted () {
-    this.getTopTracks()
+    this.getTopTracksFromService()
   }
 }
 </script>

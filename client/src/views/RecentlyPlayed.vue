@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { getRecentlyPlayed } from '../../utils/api' // api.js
+import { getRecentlyPlayed } from '../../utils/service' // service.js
 export default {
   name: 'recentlyPlayed',
   data () {
@@ -36,9 +36,9 @@ export default {
     }
   },
   methods: {
-    // The local getRecentlyPlayed function calls to the getRecentlyPlayed function in api.js.
-    getRecentlyPlayed () {
-      // Response from api.js is stored locally.
+    // Calls to the getRecentlyPlayed function in service.js.
+    getRecentlyPlayedFromService () {
+      // Response from service.js is stored locally.
       getRecentlyPlayed().then((plays) => {
         this.recentlyPlayed = plays
       })
@@ -46,7 +46,7 @@ export default {
   },
   // Executes when the page is loaded. Necessary for template access.
   mounted () {
-    this.getRecentlyPlayed()
+    this.getRecentlyPlayedFromService()
   }
 }
 </script>

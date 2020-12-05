@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { getTopArtists } from '../../utils/api' // api.js
+import { getTopArtists } from '../../utils/service' // service.js
 export default {
   name: 'topArtists',
   data () {
@@ -34,9 +34,9 @@ export default {
     }
   },
   methods: {
-    // The local getTopArtists function calls to the getTopArtists function in api.js.
-    getTopArtists () {
-      // Response from api.js is stored locally.
+    // Calls to the getTopArtists function in service.js.
+    getTopArtistsFromService () {
+      // Response from service.js is stored locally.
       getTopArtists().then((artists) => {
         this.topArtists = artists
       })
@@ -44,7 +44,7 @@ export default {
   },
   // Executes when the page is loaded. Necessary for template access.
   mounted () {
-    this.getTopArtists()
+    this.getTopArtistsFromService()
   }
 }
 </script>

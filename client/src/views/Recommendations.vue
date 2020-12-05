@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { getRecommendations } from '../../utils/api' // api.js
+import { getRecommendations } from '../../utils/service' // service.js
 export default {
   name: 'recommendations',
   data () {
@@ -36,9 +36,9 @@ export default {
     }
   },
   methods: {
-    // The local getRecommendations function calls to the getRecommendations function in api.js.
-    getRecommendations () {
-      // Response from api.js is stored locally.
+    //  Calls to the getRecommendations function in service.js.
+    getRecommendationsFromService () {
+      // Response from service.js is stored locally.
       getRecommendations().then((recommended) => {
         this.recommendations = recommended
       })
@@ -46,7 +46,7 @@ export default {
   },
   // Executes when the page is loaded. Necessary for template access.
   mounted () {
-    this.getRecommendations()
+    this.getRecommendationsFromService()
   }
 }
 </script>
