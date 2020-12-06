@@ -6,5 +6,5 @@ Clone the repo
   - cd into client -> run npm install.
   - run npm run serve to start the client.
   - cd into server -> run npm install.
-  - run node api.js <Client ID> <Client Secret> to start the server
+  - run node api.js <Client ID> <Client Secret> to start the server.
   
