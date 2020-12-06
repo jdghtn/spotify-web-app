@@ -61,6 +61,7 @@ export default {
 </script>
 
 <style scoped>
+/* Fixes bootstrap grid problem */
 .row.display-flex {
   display: flex;
   flex-wrap: wrap;
@@ -73,6 +74,7 @@ export default {
   margin: auto;
   max-width: 600px;
 }
+/* Separates names with commas */
 .insertComma + .insertComma:before {
   content: ', ';
   font-weight: normal;

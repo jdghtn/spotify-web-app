@@ -14,7 +14,6 @@
         display your Top Tracks, Top Artists, Recently Played Songs, and make
         song recommendations.
       </p>
-      <!-- <p class="org-description is-size-4">...</p> -->
     </div>
   </div>
 </template>
@@ -23,7 +22,6 @@
 .description-container {
   margin-top: 50px;
 }
-// About background colour
 .hero-body {
   background-image: url('../../public/gradient.jpg');
 }

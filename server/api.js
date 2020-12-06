@@ -38,7 +38,7 @@ var SpotifyWebApi = require('spotify-web-api-node');
 const { json } = require('body-parser');
 const { response } = require('express');
 
-// Scopes
+// Scopes needed for Top Artists, Top Tracks & Recently Played.
 const scopes = ['user-read-recently-played', 'user-top-read'];
 
 // spotifyApi instance.
@@ -48,12 +48,12 @@ const spotifyApi = new SpotifyWebApi({
   clientSecret: process.argv.slice(2)[1],
 });
 
-// Scope agreement URL
+// Scope agreement URL.
 app.get('/login', (req, res) => {
   res.redirect(spotifyApi.createAuthorizeURL(scopes));
 });
 
-// Token generation / refresh
+// Token generation & refresh.
 app.get('/callback', (req, res) => {
   const error = req.query.error;
   const code = req.query.code;

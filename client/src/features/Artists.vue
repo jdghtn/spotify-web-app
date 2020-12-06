@@ -56,6 +56,7 @@ export default {
 </script>
 
 <style scoped>
+/* Fixes bootstrap grid problem */
 .row.display-flex {
   display: flex;
   flex-wrap: wrap;
