@@ -1,4 +1,4 @@
-/* Used to send and receive HTTP requests to server.js */
+/* Used to send and receive HTTP requests to api.js */
 
 // A browser-based HTTP client.
 import axios from 'axios';
@@ -11,28 +11,28 @@ export { getTopArtists };
 export { getRecentlyPlayed };
 export { getRecommendations };
 
-// Axios waits for the response from getMyTopTracks() in server.js.
+// Axios waits for the response from getMyTopTracks() in api.js.
 async function getTopTracks() {
   const url = `${BASE_URL}/api/tracks`;
   const response = await axios.get(url);
   return response.data;
 }
 
-// Axios waits for the response from getMyTopArtists() in server.js.
+// Axios waits for the response from getMyTopArtists() in api.js.
 async function getTopArtists() {
   const url = `${BASE_URL}/api/artists`;
   const response = await axios.get(url);
   return response.data;
 }
 
-// Axios waits for the response from getMyRecentlyPlayedTracks() in server.js.
+// Axios waits for the response from getMyRecentlyPlayedTracks() in api.js.
 async function getRecentlyPlayed() {
   const url = `${BASE_URL}/api/recently-played`;
   const response = await axios.get(url);
   return response.data;
 }
 
-// Axios waits for the response from getRecommendations() in server.js.
+// Axios waits for the response from getRecommendations() in api.js.
 async function getRecommendations() {
   const url = `${BASE_URL}/api/recommendations`;
   const response = await axios.get(url);

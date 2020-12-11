@@ -9,7 +9,6 @@
           <h2 class="subtitle">
             Your Top Tracks, Top Artists, and much more at your fingertips.
           </h2>
-          <!-- there's probably a better way to do this but it-->
           <div class="notes">
             <img class="img" src="../../public/notes.png" />
           </div>
